@@ -1,0 +1,14 @@
+# .gitignore at the root
+node_modules/
+build/
+dist/
+
+# .gitignore in frontend/ directory
+pw-front/build/
+pw-front/dist/
+pw-front/build/
+
+# .gitignore in backend/ directory
+pw-back/node_modules/
+pw-back/build/
+pw-back/dist/
