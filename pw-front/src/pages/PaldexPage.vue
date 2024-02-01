@@ -30,7 +30,7 @@
               <div>
                 Fangrate
                 <div class="flex align-center q-gutter-sm">
-                  <q-img v-for="i in pal.value" :key="i" src="../assets/palsphere.png" width="28px"></q-img>
+                  <q-img v-for="i in Math.max(10, pal.value)" :key="i" src="../assets/palsphere.png" width="28px"></q-img>
                   <q-img v-for="i in Math.min(10, Math.max(0, 10 - pal.value))" :key="i" src="../assets/palsphere-grey.png" width="28px"></q-img>
                   <div class="flex flex-center">{{ pal.value }} / 10</div>
                   <q-badge v-if="pal.value >= 10" rounded color="green" label="MAX BONUS" />
