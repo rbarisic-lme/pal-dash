@@ -14,7 +14,7 @@ export class SaveConverter {
   public static convertSave(saveFilePath: string) {
     const pythonScriptPath = 'vendor/palworld-convert-save/convert.py';
 
-    const command = `python ${pythonScriptPath} --to-json --print-json --minify-json ${saveFilePath}`;
+    const command = `${env.pythonRuntime} ${pythonScriptPath} --to-json --print-json --minify-json ${saveFilePath}`;
 
     try {
       const output = execSync(command, { encoding: 'utf-8' });

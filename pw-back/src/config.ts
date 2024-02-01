@@ -10,6 +10,7 @@ interface ServerConfig {
   palDir: string,
   serverId: string,
   worldGuid: string,
+  pythonRuntime: string,
   // Add other configurations here
 }
 
@@ -18,6 +19,7 @@ const config: ServerConfig = {
   palDir: procEnv.PAL_DIR || '',
   serverId: procEnv.SERVER_ID || '',
   worldGuid: procEnv.WORLD_GUID || '',
+  pythonRuntime: procEnv.PYTHON_RUNTIME || 'python',
   // Add other configurations here
 };
 
