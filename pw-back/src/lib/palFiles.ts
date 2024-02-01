@@ -35,6 +35,7 @@ export class PalFiles {
   static async getFileDate(filePath: string) {
     try {
       const stat = await fs.promises.stat(filePath);
+      // @ts-ignore typescript bug
       const mode: StatsMode = new Mode(stat);
 
       return mode
