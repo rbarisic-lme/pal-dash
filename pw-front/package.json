@@ -14,6 +14,7 @@
   },
   "dependencies": {
     "@quasar/extras": "^1.16.4",
+    "@rbarisic/local-storage-cache": "^1.0.2",
     "axios": "^1.2.1",
     "dotenv": "^16.4.1",
     "pinia": "^2.0.11",

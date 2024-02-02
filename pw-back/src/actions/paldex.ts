@@ -19,6 +19,7 @@ router.get('/', async (req: Request, res: Response) => {
   res.json(jsonResponse);
 });
 
+// todo: move to players.ts
 router.get('/:id', (req: Request, res: Response) => {
   const playerId = req.params.id;
 
@@ -27,7 +28,7 @@ router.get('/:id', (req: Request, res: Response) => {
     return;
   }
 
-  const fileContents = SaveConverter.convertSaveWithEnv(playerId + '.sav')
+  const fileContents = SaveConverter.playerSavToJSON(playerId + '.sav')
 
   res.json({fileContents});
 

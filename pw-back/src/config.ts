@@ -25,5 +25,5 @@ const config: ServerConfig = {
 
 export const env = config
 
-export const fullWorldPath = path.join(config.palDir, 'Saved', 'SaveGames', config.serverId, config.worldGuid);
+export const fullWorldPath   = path.join(config.palDir, 'Saved', 'SaveGames', config.serverId, config.worldGuid);
 export const playerSavesPath = path.join(fullWorldPath, 'Players');
