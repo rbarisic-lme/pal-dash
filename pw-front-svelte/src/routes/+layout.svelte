@@ -6,11 +6,9 @@
     <div class="text-md">Dashboard App by xrlabs</div>
   </div>
 
-  <div class="text-center flex flex-col gap-md">
-    <div class="text-sm">
-      <div>All rights to Palworld by:</div>
-      <img src="Pocketpair_Logo_White.png" alt="pocketpair logo" width="200px"/>
-    </div>
+  <div class="text-sm text-center flex flex-col items-center gap-sm pb-xl pt-xl">
+    <img src="Pocketpair_Logo_White.png" alt="pocketpair logo" width="200px"/>
+    <div class="max-w-screen-md">{legalDisclaimer}</div>
   </div>
 </main>
 
@@ -19,7 +17,7 @@
   import "@fontsource/inter";
   import "@fontsource/poppins";
   import PHeader from '../components/landing/header.svelte';
-
+  import legalDisclaimer from '../data/legalDisclaimer';
 </script>
 
 <style lang="postcss">

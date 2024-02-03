@@ -1,5 +1,8 @@
 <Section label="Actions">
   <slot>
+    <LCard label="Server Information" background="bg-second" slotClass="p-lg">
+      <ServerStats/>
+    </LCard>
     {#each cards as { label, action, actionExternal, background, bgImage } (label)}
       <LCard {label} {action} {actionExternal} {background} {bgImage}></LCard>
     {/each}
@@ -29,10 +32,13 @@
 </Section>
 
 
-<script>
+<script>  
+  import Loading from "svelte-material-icons/Loading.svelte";
+
 	import { fetchLivestreams } from '$lib/youtubeAPI';
   import LCard from '../components/landing/landing-card.svelte';
   import YTCard from '../components/landing/yt-card.svelte';
+  import ServerStats from '../components/landing/serverStats.svelte';
   import Section from '../components/section.svelte';
 
 	import { onMount } from 'svelte';
@@ -42,17 +48,14 @@
 	 * @type {string | any[] | undefined}
 	 */
   let ytVideos = [];
+  let ytVideosLoaded = false;
 
 	onMount(async () => {
     ytVideos = await fetchLivestreams();
+    ytVideosLoaded = true;
 	});
 
   const cards = [
-    {
-      label: 'Server Stats',
-      background: 'bg-second',
-      bgImage : '',
-    },
     {
       label: 'Player Info',
       action: 'players',

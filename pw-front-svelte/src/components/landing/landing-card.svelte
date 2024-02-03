@@ -8,10 +8,12 @@
   style="{bigModeStyleWidth}">
   
     <div
-      class="overflow-clip {(background ? background + ' ' : 'bg-white')} landing-card rounded-lg"
+      class="{slotClass} overflow-clip {(background ? background + ' ' : 'bg-white')} landing-card rounded-lg"
       style="background-image: url('{bgImage ? bgImage : ''}');
       {bigModeStyleWidth} {bigModeStyleHeight}">
-    <slot/>
+      
+      <slot/>
+
     </div>
 
   {#if label}
@@ -24,6 +26,8 @@
   
   export let label = '';
 
+  export let slotClass = '';
+  
   export let action = '';
   export let actionExternal = false;
   

@@ -1,0 +1,23 @@
+version: '3'
+
+services:
+  pw-front:
+    build:
+      context: ./pw-front-svelte
+    ports:
+      - "3020:3000"
+
+  pw-back:
+    build:
+      context: ./pw-back
+    environment:
+      - PORT=3030  # Set the desired port for pw-back
+    ports:
+      - "3030:3030"
+
+  palworld-paldex-api:
+    build:
+      context: https://github.com/mlg404/palworld-paldex-api.git#v1.2.0
+      dockerfile: Dockerfile
+    ports:
+      - "3080:3000"  # Change the host port to the desired port
