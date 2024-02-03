@@ -12,3 +12,9 @@ pw-front/build/
 pw-back/node_modules/
 pw-back/build/
 pw-back/dist/
+
+pw-back/vendor/palworld-convert-save/lib/__pycache__/*
+pw-back/vendor/palworld-convert-save/lib/rawdata/__pycache__/*
+__pycache__/*
+
+.env.production
