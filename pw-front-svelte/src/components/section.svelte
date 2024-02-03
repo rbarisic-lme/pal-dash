@@ -1,4 +1,4 @@
-<div class="slot flex flex-col gap-lg">
+<div class="slot flex flex-start flex-col gap-lg">
   <slot name="label">
     <div class="text-xl font-poppins flex justify-center">{label}</div>
   </slot>

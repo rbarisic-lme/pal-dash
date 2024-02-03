@@ -8,10 +8,14 @@
   style="{bigModeStyleWidth}">
   
     <div
-      class="{slotClass} overflow-clip {(background ? background + ' ' : 'bg-white')} landing-card rounded-lg"
+      class="{slotClass} {border ? 'overflow-clip' : ''} {(background ? background + ' ' : 'bg-white')} landing-card rounded-lg"
       style="background-image: url('{bgImage ? bgImage : ''}');
       {bigModeStyleWidth} {bigModeStyleHeight}">
-      
+      {#if icon}
+        <div class="w-full h-full flex items-center justify-center">
+          <svelte:component this={icon} size="64"/>
+        </div>
+      {/if}
       <slot/>
 
     </div>
@@ -26,6 +30,8 @@
   
   export let label = '';
 
+  export let border = true;
+
   export let slotClass = '';
   
   export let action = '';
@@ -33,6 +39,7 @@
   
   export let background = '';
   export let bgImage = '';
+  export let icon = ''; // use an icon as bg
 
   export let bigMode = false;
 
@@ -49,7 +56,7 @@
 
   const getAction = () => {
     if(actionExternal) {
-      window.location = action
+      window.open(action, '_blank');
     } else {
       action ? goto(action) : () => {}
     }

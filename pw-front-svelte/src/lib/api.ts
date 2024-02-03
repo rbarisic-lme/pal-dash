@@ -11,3 +11,7 @@ export const api = axios.create({
     // Add any other headers you need
   },
 });
+
+export const getDockerCompose = () => api.get('/docker/settings')
+
+export const getDockerStatus = () => api.get('/docker/status')

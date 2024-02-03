@@ -7,6 +7,7 @@ const procEnv = process.env
 
 interface ServerConfig {
   port: number,
+  rootDir: string,
   palDir: string,
   serverId: string,
   worldGuid: string,
@@ -16,6 +17,7 @@ interface ServerConfig {
 
 const config: ServerConfig = {
   port: Number(procEnv.PORT) || 3000,
+  rootDir: procEnv.ROOT_DIR || '',
   palDir: procEnv.PAL_DIR || '',
   serverId: procEnv.SERVER_ID || '',
   worldGuid: procEnv.WORLD_GUID || '',
