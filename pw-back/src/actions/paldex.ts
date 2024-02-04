@@ -22,10 +22,12 @@ router.get('/', async (req: Request, res: Response) => {
 });
 
 
+// todo: let me set which fields to return
 router.get('/pals', (req: Request, res: Response) => {
   console.error(pals);
   
-  res.json(pals.map(pal => [pal.name, pal.asset]));
+  // res.json(pals.map(pal => [pal.name, pal.asset]));
+  res.json(pals);
 })
 
 // todo: move to players.ts

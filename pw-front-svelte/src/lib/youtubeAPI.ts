@@ -19,7 +19,6 @@ export default youtubeAPI;
 
 export const fetchLivestreams = async (): Promise<any[] | undefined> => {
   let ytvideos = getCachedData('yt-streams');
-  console.error(ytvideos)
   if(ytvideos) {
     return ytvideos;
   } else {

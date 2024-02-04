@@ -1,15 +1,51 @@
-<script>
+<script lang="ts">
 	import '../app.css';
 	import '@fontsource/inter';
 	import '@fontsource/poppins';
+
+	import { onMount, afterUpdate } from 'svelte';
+
 	import PHeader from '../components/landing/header.svelte';
 	import legalDisclaimer from '../data/legalDisclaimer';
 	import { label, title } from '@/lib/store';
+	import { AppBar } from '@skeletonlabs/skeleton';
+	import { goto } from '$app/navigation';
+
+	import ArrowLeft from 'svelte-material-icons/ArrowLeft.svelte';
+	import { page } from '$app/stores';
+
+	let currentRoute = '';
+	let topRoute = '';
+
+	onMount(() => {
+		currentRoute = $page.route.id as string;
+		topRoute = currentRoute.split('/').slice(0, -1).join('/');
+	});
+
+	afterUpdate(() => {
+		currentRoute = $page.route.id as string;
+		topRoute = currentRoute.split('/').slice(0, -1).join('/');
+	});
+
+	const goBack = () => {
+		goto(topRoute || '/');
+	};
 </script>
 
 <svelte:head>
 	<title>{$title}</title>
 </svelte:head>
+
+<AppBar>
+	<svelte:fragment slot="lead">
+		{#if currentRoute !== '/'}
+			<button type="button" on:click={goBack}>
+				<ArrowLeft />
+			</button>
+		{/if}
+	</svelte:fragment>
+	<div>PalDash - Control Panel</div>
+</AppBar>
 
 <main
 	class="container mx-auto p-4 flex flex-col justify-between min-h-screen items-center"
@@ -25,7 +61,7 @@
 	<div class="text-sm text-center flex flex-col items-center gap-sm pb-lg pt-xl">
 		<div class="text-md">Dashboard App by xrlabs</div>
 		<div class="text-md">PALWORLD by:</div>
-		<img src="Pocketpair_Logo_White.png" alt="pocketpair logo" width="200px" />
+		<img src="/Pocketpair_Logo_White.png" alt="pocketpair logo" width="200px" />
 		<div class="max-w-screen-md">{legalDisclaimer}</div>
 	</div>
 </main>

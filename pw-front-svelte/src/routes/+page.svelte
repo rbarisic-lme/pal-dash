@@ -13,7 +13,7 @@
 	import { onMount } from 'svelte';
 
 	import { label, title, dockerCompose, initializeData } from '@/lib/store';
-	label.set('PalDash<span class="hidden lg:inline">- Control Panel</span>');
+	label.set('PalDash<span class="hidden lg:inline"> - Control Panel</span>');
 	title.set('PalDash');
 
 	/**

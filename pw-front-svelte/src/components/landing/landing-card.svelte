@@ -28,8 +28,6 @@
 	};
 
 	const getWidth = (windowWidth: number) => {
-		console.error('windowWidth', windowWidth);
-
 		return bigMode ? `width: ${windowWidth < 620 ? '100%' : '620px'};` : 'width: 300px;';
 	};
 

@@ -5,35 +5,47 @@
 	import { PalWorldSavegame } from '@/lib/palworldSavegame';
 	import { Accordion, AccordionItem } from '@skeletonlabs/skeleton';
 	import { onMount } from 'svelte';
+	import Section from '@/components/section.svelte';
+
+	import { writable } from 'svelte/store';
+	import { palData, loadPalData } from '@/lib/store';
 
 	export let data; // from page.js
 
-	let palData = undefined;
 	let playerData: PalWorldSavegame;
 
 	let ready: Boolean = false;
+	let failed: Boolean = false;
 
 	onMount(async () => {
-		const playerDataRes = await api.get('/paldex/' + data.id);
-		playerData = new PalWorldSavegame(playerDataRes.data.fileContents);
+		try {
+			const playerDataRes = await api.get('/paldex/' + data.id);
+			playerData = new PalWorldSavegame(playerDataRes.data.fileContents);
 
-		const palDataRes = await api.get('/paldex/pals');
-		palData = palDataRes.data;
+			await loadPalData();
 
-		console.error(palData);
-
-		ready = true;
+			ready = true;
+		} catch (error) {
+			console.error('Error fetching data:', error);
+			failed = true;
+		}
 	});
 </script>
 
-<Loader {ready}>
+<Loader {ready} {failed}>
 	<div class="text-xl text-center">Player {data.id}</div>
 
-	<div class="grid grid-cols-3 gap-lg">
-		{#each playerData.palsCaptured as pal}
-			<PalEntry {pal} />
-		{/each}
-	</div>
+	<Section label="Captured Pals">
+		{#if playerData.palsCaptured.length}
+			<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-lg">
+				{#each playerData.palsCaptured as pal}
+					<PalEntry {pal} />
+				{/each}
+			</div>
+		{:else}
+			<div class="text-center">no Pals captured yet.</div>
+		{/if}
+	</Section>
 
 	<div class="card w-full">
 		<!-- <Accordion>
