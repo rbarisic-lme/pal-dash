@@ -3,11 +3,11 @@ FROM node:21
 
 # Set build-time environment variables
 ARG PUBLIC_SERVER_URL
-ARG PUBLIC_PALDEX_URL
+ARG PUBLIC_PALDEX_API_URL
 
 # Set environment variables directly
 ENV PUBLIC_SERVER_URL=$PUBLIC_SERVER_URL
-ENV PUBLIC_PALDEX_URL=$PUBLIC_PALDEX_URL
+ENV PUBLIC_PALDEX_API_URL=$PUBLIC_PALDEX_API_URL
 
 # Set the working directory inside the container
 WORKDIR /app
