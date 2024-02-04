@@ -13,11 +13,11 @@ RUN npm install -g npm@latest
 # Install dependencies
 RUN npm install
 
-# Copy .env.docker and rename it to .env
-COPY .env.docker .env
-
 # Copy the entire project to the working directory
 COPY . .
+
+# Copy .env.docker and rename it to .env
+COPY .env.docker .env
 
 # Build the SvelteKit project
 RUN npm run build
