@@ -13,14 +13,14 @@ RUN npm install -g npm@latest
 # Install dependencies
 RUN npm install
 
+# Copy .env.docker and rename it to .env for npm run build
+COPY .env.docker .env
+
 # Copy the entire project to the working directory
 COPY . .
 
-# Copy .env.docker and rename it to .env
-COPY .env.docker .env
-
-# Build the SvelteKit project
-RUN npm run build
+# Build the SvelteKit project using the environment variables from .env
+RUN source .env && npm run build
 
 # Expose the port that your application will run on
 EXPOSE 3000
