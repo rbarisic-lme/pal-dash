@@ -17,12 +17,14 @@ services:
     build:
       context: ./pw-back
     environment:
-      - PORT=3030  # Set the desired port for pw-back
-      - ROOT_DIR='/home/xiq/srv/palworld'
-      - PAL_DIR='/home/xiq/srv/palworld/game/Pal'
-      - SERVER_ID='0'
-      - WORLD_GUID='F37D14B248EFAFC63FB56E8E65671166'
-      - PYTHON_RUNTIME='python3'
+      - PORT=3030
+      - ROOT_DIR=/home/srv/palworld
+      - PAL_DIR=/home/srv/palworld/game/Pal
+      - SERVER_ID=0
+      - WORLD_GUID=F37D14B248EFAFC63FB56E8E65671166
+      - PYTHON_RUNTIME=python3
+    volumes:
+      - /home/xiq/srv/palworld:/home/srv/palworld
     ports:
       - "3030:3030"
 

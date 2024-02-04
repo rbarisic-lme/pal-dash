@@ -3,6 +3,20 @@ import express, { Router, Request, Response } from 'express';
 import { execSync } from 'node:child_process';
 import { YamlFile } from '@/lib/yamlFile.ts';
 
+interface DockerStatus {
+  ID: string,
+  CreatedAt: string,
+  Image: string,
+  Names: string,
+  State: string,
+  Status: string,
+  RunningFor: string,
+}
+
+interface ErrorMessage {
+  e: string,
+}
+
 const router = express.Router();
 
 router.get('/settings', (req: Request, res: Response) => {
@@ -17,20 +31,6 @@ router.get('/settings', (req: Request, res: Response) => {
     })
   }
 });
-
-interface DockerStatus {
-  ID: string,
-  CreatedAt: string,
-  Image: string,
-  Names: string,
-  State: string,
-  Status: string,
-  RunningFor: string,
-}
-
-interface ErrorMessage {
-  e: string,
-}
 
 router.get('/status', (req: Request, res: Response): void => {
   try {
