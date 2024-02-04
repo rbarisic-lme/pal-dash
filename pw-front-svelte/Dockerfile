@@ -1,6 +1,14 @@
 # Use the official Node.js image as the base image
 FROM node:21
 
+# Set build-time environment variables
+ARG PUBLIC_SERVER_URL
+ARG PUBLIC_PALDEX_URL
+
+# Set environment variables directly
+ENV PUBLIC_SERVER_URL=$PUBLIC_SERVER_URL
+ENV PUBLIC_PALDEX_URL=$PUBLIC_PALDEX_URL
+
 # Set the working directory inside the container
 WORKDIR /app
 
@@ -18,6 +26,9 @@ COPY .env.docker .env
 
 # Copy the entire project to the working directory
 COPY . .
+
+# Install dotenv as a runtime dependency
+RUN npm install dotenv
 
 # Source .env and build the SvelteKit project
 RUN npm run build
