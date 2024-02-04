@@ -48,7 +48,7 @@ export class PalWorldSavegame {
   }
 
   get palsCaptured() {
-    return this.recordData.
+    return this.parser.palsCaptured;
   }
 
   // get packageFileVersionUE4() {

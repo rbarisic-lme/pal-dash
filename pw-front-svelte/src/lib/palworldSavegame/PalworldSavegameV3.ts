@@ -51,7 +51,11 @@ export class PalWorldSavegameV3 implements PalworldSavegameParser {
   }
 
   get recordData(): PalLoggedinPlayerSaveDataRecordData {
-    return this.saveData.RecordData;
+    return this.saveData.RecordData.value;
+  }
+
+  get palsCaptured(): PalCaptureCountItem[] {
+    return this.recordData.PalCaptureCount.value;
   }
 
   // todo: add getters

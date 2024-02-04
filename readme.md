@@ -13,3 +13,7 @@ I'm automatically deploying this to my server with a bitbucket pipeline so I can
 ## Configuration
 
 Edit the ENV files in the .docker-compose to change the configuration. This is still WIP so I won't provide a config list just yet.
+
+## Attributions
+
+Palsphere Icon shamelessly ripped from [paldex.io](https://paldex.io/palworld/items/pal-sphere/), I'll replace this as soon as I get better at illustrator.

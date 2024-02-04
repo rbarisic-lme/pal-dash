@@ -1,6 +1,6 @@
 {
   "name": "palworld-savegame-ts",
-  "version": "1.0.0",
+  "version": "0.0.2",
   "description": "Palworld Savegame Parser and Type Definitions",
   "main": "index.ts",
   "scripts": {

@@ -170,11 +170,16 @@ interface PalPlayerDataCharacterMakeInfo {
   };
 }
 
+interface PalCaptureCountItem {
+  key: string,
+  value: number,
+}
+
 interface PalLoggedinPlayerSaveDataRecordData {
   FastTravelPointUnlockFlag: Map<string, boolean>;
   NormalBossDefeatFlag: Map<string, boolean>;
   NoteObtainForInstanceFlag: Map<string, boolean>;
-  PalCaptureCount: Map<string, number>;
+  PalCaptureCount: Map<PalCaptureCountItem>;
   PalCaptureCountBonusCount_Tier1: {
     id: null;
     type: string;

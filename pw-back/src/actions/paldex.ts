@@ -1,5 +1,7 @@
 import express, { Router, Request, Response } from 'express';
 import { SaveConverter } from '@/lib/saveConverter.ts'; // Adjust the import path based on your project structure
+import pals from 'palworld-paldex-api/src/pals.json' assert { type: 'json' }
+import { IPal } from 'palworld-paldex-api/src/common/interfaces/pal.interface.ts'
 
 const router = express.Router();
 
@@ -19,6 +21,13 @@ router.get('/', async (req: Request, res: Response) => {
   res.json(jsonResponse);
 });
 
+
+router.get('/pals', (req: Request, res: Response) => {
+  console.error(pals);
+  
+  res.json(pals.map(pal => [pal.name, pal.asset]));
+})
+
 // todo: move to players.ts
 router.get('/:id', (req: Request, res: Response) => {
   const playerId = req.params.id;
@@ -33,5 +42,6 @@ router.get('/:id', (req: Request, res: Response) => {
   res.json({fileContents});
 
 })
+
 
 export default router;

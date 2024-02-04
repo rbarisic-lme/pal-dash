@@ -20,7 +20,8 @@
     "express": "^4.18.2",
     "node-schedule": "^2.1.1",
     "stat-mode": "^1.0.0",
-    "yaml": "^2.3.4"
+    "yaml": "^2.3.4",
+    "palworld-paldex-api": "https://github.com/mlg404/palworld-paldex-api.git"
   },
   "devDependencies": {
     "@babel/core": "^7.23.9",

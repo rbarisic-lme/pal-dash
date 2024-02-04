@@ -1,5 +1,6 @@
 <script lang="ts">
 	import Loader from '@/components/loader.svelte';
+	import PalEntry from '@/components/players/palEntry.svelte';
 	import { api } from '@/lib/api';
 	import { PalWorldSavegame } from '@/lib/palworldSavegame';
 	import { Accordion, AccordionItem } from '@skeletonlabs/skeleton';
@@ -7,20 +8,33 @@
 
 	export let data; // from page.js
 
+	let palData = undefined;
 	let playerData: PalWorldSavegame;
 
 	let ready: Boolean = false;
 
 	onMount(async () => {
-		const response = await api.get('/paldex/' + data.id);
-		playerData = new PalWorldSavegame(response.data.fileContents);
-		console.error(playerData.parser.data);
+		const playerDataRes = await api.get('/paldex/' + data.id);
+		playerData = new PalWorldSavegame(playerDataRes.data.fileContents);
+
+		const palDataRes = await api.get('/paldex/pals');
+		palData = palDataRes.data;
+
+		console.error(palData);
 
 		ready = true;
 	});
 </script>
 
 <Loader {ready}>
+	<div class="text-xl text-center">Player {data.id}</div>
+
+	<div class="grid grid-cols-3 gap-lg">
+		{#each playerData.palsCaptured as pal}
+			<PalEntry {pal} />
+		{/each}
+	</div>
+
 	<div class="card w-full">
 		<!-- <Accordion>
 			<AccordionItem open>
