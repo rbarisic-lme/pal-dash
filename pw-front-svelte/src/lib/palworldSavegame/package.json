@@ -1,0 +1,24 @@
+{
+  "name": "palworld-savegame-ts",
+  "version": "1.0.0",
+  "description": "Palworld Savegame Parser and Type Definitions",
+  "main": "index.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rbarisic-lme/palworld-savegame-ts.git"
+  },
+  "keywords": [
+    "palworld",
+    "savegames",
+    "typescript"
+  ],
+  "author": "R. Barisic",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/rbarisic-lme/palworld-savegame-ts/issues"
+  },
+  "homepage": "https://github.com/rbarisic-lme/palworld-savegame-ts#readme"
+}

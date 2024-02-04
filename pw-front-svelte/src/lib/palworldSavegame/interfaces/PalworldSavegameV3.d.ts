@@ -28,7 +28,9 @@ interface PalWorldSavegameV3Data {
         PalStorageContainerId: PalContainerId;
         PlayerCharacterMakeData: PalPlayerDataCharacterMakeInfo;
         PlayerUId: PalInstanceID;
-        RecordData: PalLoggedinPlayerSaveDataRecordData;
+        RecordData: {
+          value: PalLoggedinPlayerSaveDataRecordData;
+        };
         TechnologyPoint: {
           id: null;
           type: string;

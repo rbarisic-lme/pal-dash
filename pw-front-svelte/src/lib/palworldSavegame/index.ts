@@ -43,8 +43,12 @@ export class PalWorldSavegame {
     return this.parser.saveData;
   }
 
-  get recordData() {
-    return this.parser.recordData;
+  get recordData(): PalLoggedinPlayerSaveDataRecordData {
+    return this.parser.recordData.value;
+  }
+
+  get palsCaptured() {
+    return this.recordData.
   }
 
   // get packageFileVersionUE4() {
