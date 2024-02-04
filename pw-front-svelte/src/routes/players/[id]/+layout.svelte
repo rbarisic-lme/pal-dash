@@ -1,6 +1,6 @@
-<script>
+<script lang="ts">
 	import { label, title } from '@/lib/store';
-	label.set('Server Config');
+	label.set('Player Page');
 	title.set('PalDash - ' + $label);
 </script>
 

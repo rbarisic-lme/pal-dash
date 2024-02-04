@@ -29,7 +29,7 @@
 
 	<div class="row q-col-gutter-md q-pa-md">
 		<Loader ready={!isLoading && data}>
-			<div class="flex flex-wrap gap-md items-center justify-center">
+			<div class="grid grid-cols-3 gap-lg">
 				{#each data as player}
 					<PlayerItem {player} />
 				{/each}

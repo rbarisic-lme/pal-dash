@@ -73,16 +73,18 @@
 
 	<Section label="Actions">
 		<slot>
-			{#each cards as { label, action, actionExternal, background, bgImage, icon } (label)}
-				<LCard {label} {action} {actionExternal} {background} {bgImage} {icon}></LCard>
-			{/each}
+			<div class="grid grid-cols-3 gap-lg gap-y-xl">
+				{#each cards as { label, action, actionExternal, background, bgImage, icon } (label)}
+					<LCard {label} {action} {actionExternal} {background} {bgImage} {icon}></LCard>
+				{/each}
+			</div>
 		</slot>
 	</Section>
 
 	<Section label="Streams">
 		{#if ytVideos && ytVideos.length}
 			<!-- <div class="flex justify-center flex-wrap lg:flex-no-wrap justify-start gap-lg"> -->
-			<div class="flex justify-center justify-start gap-lg">
+			<div class="flex justify-center justify-start gap-lg gap-y-xl">
 				<!-- Jumbo Card -->
 				<YTCard windowWidth={innerWidth} hideLabel bigMode video={ytVideos[0]}></YTCard>
 				<div class="flex flex-col gap-md" style="width: 300px">
@@ -91,7 +93,7 @@
 				</div>
 			</div>
 
-			<div class="flex flex-wrap gap-x-lg gap-y-md justify-center">
+			<div class="grid grid-cols-3 gap-x-lg gap-y-md">
 				{#each ytVideos.slice(1, 4) as video}
 					<YTCard {video}></YTCard>
 				{/each}

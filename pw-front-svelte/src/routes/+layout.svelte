@@ -15,7 +15,7 @@
 	class="container mx-auto p-4 flex flex-col justify-between min-h-screen items-center"
 	style="max-width: 980px;"
 >
-	<div class="flex flex-col justify-center gap-2xl">
+	<div class="flex flex-col justify-center gap-2xl w-full">
 		<PHeader>
 			{@html $label}
 		</PHeader>
