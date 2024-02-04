@@ -4,7 +4,7 @@ services:
   pw-front:
     build:
       context: ./pw-front-svelte
-    environment:
+    environment: # warning: for build environment, use .env.docker in ./pw-front-svelte/
       - PUBLIC_SERVER_URL=http://45.132.244.146:3030/ # todo: automatically get server url
       - PUBLIC_PALDEX_URL=http://45.132.244.146:3080/ # todo: automatically get server url
     ports:
