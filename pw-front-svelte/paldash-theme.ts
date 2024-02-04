@@ -11,7 +11,7 @@ export const paldashTheme: CustomThemeConfig = {
 		"--theme-font-color-base": "0 0 0",
 		"--theme-font-color-dark": "255 255 255",
 		"--theme-rounded-base": "9999px",
-		"--theme-rounded-container": "8px",
+		"--theme-rounded-container": "24px",
 		"--theme-border-base": "1px",
 		// =~= Theme On-X Colors =~=
 		"--on-primary": "255 255 255",

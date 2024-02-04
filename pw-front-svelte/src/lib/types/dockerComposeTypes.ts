@@ -102,6 +102,16 @@ interface DockerCompose {
   services: Services;
 }
 
+interface DockerStatus {
+  ID: string,
+  CreatedAt: string,
+  Image: string,
+  Names: string,
+  State: string,
+  Status: string,
+  RunningFor: string,
+}
+
 export type {
   PortConfiguration,
   ServiceConfiguration,
@@ -109,4 +119,5 @@ export type {
   DynamicServiceName,
   Services,
   DockerCompose,
+  DockerStatus,
 };

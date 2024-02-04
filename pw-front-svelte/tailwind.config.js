@@ -17,7 +17,24 @@ export default {
 		)
   ],
   theme: {
+    container: {
+      // you can configure the container to be centered
+      center: true,
+      // or have default horizontal padding
+      padding: '1rem',
+      // default breakpoints but with 40px removed
+      screens: {
+        sm: '600px',
+        md: '728px',
+        lg: '984px',
+        xl: '1240px',
+        '2xl': '1496px',
+      },
+    },
     extend: {
+      flexWrap: {
+        'default': 'wrap',
+      },
       screens: {
         sm: '480px',
         md: '768px',
@@ -38,13 +55,14 @@ export default {
         'purple': '#7e5bef',
         'pink': '#ff49db',
         'orange': '#ff7849',
-        'green': '#13ce66',
+        'green': '#64ff00',
         'yellow': '#ffc82c',
         'gray-dark': '#273444',
         'gray': '#8492a6',
         'gray-light': '#d3dce6',
         bg: '#0E0C1B', // Rich Black
         second: '#3223DB',
+        third: '#3bf698',
         new: '#221e3e',
   
       },
@@ -61,6 +79,8 @@ export default {
         'lead': '64px',
       },
       spacing: {
+        'xs': '4px',
+        'sm': '6px',
         'md': '10px',
         'lg': '20px',
         'xl': '32px',

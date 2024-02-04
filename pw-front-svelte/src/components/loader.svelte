@@ -1,5 +1,7 @@
 {#if !ready}
-  <Loading {size} class="animate-spin"></Loading>  
+  <div class="w-full flex justify-center">
+    <Loading {size} class="animate-spin"></Loading>
+  </div>
 {:else}
   <slot/>
 {/if}

@@ -18,7 +18,21 @@ router.get('/settings', (req: Request, res: Response) => {
   }
 });
 
-router.get('/status', (req: Request, res: Response) => {
+interface DockerStatus {
+  ID: string,
+  CreatedAt: string,
+  Image: string,
+  Names: string,
+  State: string,
+  Status: string,
+  RunningFor: string,
+}
+
+interface ErrorMessage {
+  e: string,
+}
+
+router.get('/status', (req: Request, res: Response): void => {
   try {
     const command = `
       docker ps --format '{
@@ -33,12 +47,12 @@ router.get('/status', (req: Request, res: Response) => {
     `;
     const output = execSync(command, { shell: 'bash', encoding: 'utf-8', maxBuffer: 1024 * 1024 * 1000  }); //1000mb maxBuffer
 
-    res.json(JSON.parse(output) || {});
+    res.json(JSON.parse(output) as DockerStatus|| {});
   } catch (e) {
     console.error(e.message);
 
     res.status(500);
-    res.json({e: e.message})
+    res.json({e: e.message as ErrorMessage})
   }
 });
 
