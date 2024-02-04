@@ -19,8 +19,8 @@ COPY .env.docker .env
 # Copy the entire project to the working directory
 COPY . .
 
-# Build the SvelteKit project using the environment variables from .env
-RUN . .env && npm run build
+# Source .env and build the SvelteKit project
+RUN npm run build
 
 # Expose the port that your application will run on
 EXPOSE 3000
