@@ -69,7 +69,7 @@
 				{#each myPal.suitability as job}
 					<div class="flex gap-sm">
 						<!-- {job.type} -->
-						<img src={`${PUBLIC_PALDEX_API_URL}/${job.image}`} alt={job.type} />
+						<img src={`${PUBLIC_PALDEX_API_URL}${job.image}`} alt={job.type} />
 						{job.level}
 					</div>
 				{/each}
