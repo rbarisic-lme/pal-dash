@@ -83,7 +83,8 @@ export default {
         // adjusted for shingo:
         sm: '10px',
         base: '12px',
-        'lg': '14px',
+        'md': '14px',
+        'lg': '16px',
         'xl': '18px',
         '2xl': '38px',
         'lead': '54px',

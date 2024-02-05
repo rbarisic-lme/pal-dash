@@ -36,7 +36,7 @@
 	<title>{$title}</title>
 </svelte:head>
 
-<AppBar>
+<AppBar class="sticky top-0 z-10">
 	<svelte:fragment slot="lead">
 		{#if currentRoute !== '/'}
 			<button type="button" on:click={goBack}>

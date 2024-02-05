@@ -51,13 +51,13 @@
 					<div class="badge text-green">MAX BONUS</div>
 				{/if}
 			</div>
-			<div class="flex flex-wrap">
+			<div class="grid grid-cols-10">
 				{#each Array.from({ length: pal.value > 10 ? 10 : pal.value }) as i}
-					<img src="/Pal_Sphere_icon.webp" width="24px" alt="Captured" />
+					<img src="/Pal_Sphere_icon.webp" alt="Captured" />
 				{/each}
 
 				{#each Array.from({ length: 10 - pal.value < 0 ? 0 : 10 - pal.value }) as i}
-					<img src="/Pal_Sphere_icon_disabled.webp" width="24px" alt="Captured" />
+					<img src="/Pal_Sphere_icon_disabled.webp" alt="Captured" />
 				{/each}
 			</div>
 		</div>
