@@ -43,7 +43,7 @@
 
 <Modal />
 
-<AppBar class="sticky top-0 z-10">
+<AppBar class="sticky top-0 z-50">
 	<svelte:fragment slot="lead">
 		{#if currentRoute !== '/'}
 			<button type="button" on:click={goBack}>
