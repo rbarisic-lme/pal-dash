@@ -3,3 +3,10 @@
 @tailwind utilities;
 
 /* @import url('https://fonts.cdnfonts.com/css/a-otf-shin-go-pro'); */
+
+@layer utilities {
+  .flex-center {
+    justify-content: center;
+    align-items: center;
+  }
+}

@@ -19,9 +19,10 @@
     "eslint-config-prettier": "^9.1.0",
     "express": "^4.18.2",
     "node-schedule": "^2.1.1",
+    "palworld-paldex-api": "https://github.com/mlg404/palworld-paldex-api.git",
     "stat-mode": "^1.0.0",
-    "yaml": "^2.3.4",
-    "palworld-paldex-api": "https://github.com/mlg404/palworld-paldex-api.git"
+    "validator": "^13.11.0",
+    "yaml": "^2.3.4"
   },
   "devDependencies": {
     "@babel/core": "^7.23.9",

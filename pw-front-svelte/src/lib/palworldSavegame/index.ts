@@ -7,7 +7,7 @@ export class PalWorldSavegame {
   constructor(fileContents: string) {
     if(!fileContents) throw new Error('fileContents not defined or undefined')
     
-    const data = JSON.parse(fileContents);
+    const data = fileContents;
 
     // Determine the save game version
     const saveGameVersion = data.header.save_game_version;

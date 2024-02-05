@@ -12,11 +12,15 @@ const port = process.env.PORT || 3000;
 // CORS middleware
 app.use(cors());
 
+
 // Middleware to set Content-Type to application/json for all responses
 app.use((req: Request, res: Response, next: NextFunction) => {
   res.setHeader('Content-Type', 'application/json');
   next();
 });
+
+// Middleware to parse JSON requests
+app.use(express.json());
 
 // Use the imported routes
 Object.entries(routes).forEach(([path, route]) => {

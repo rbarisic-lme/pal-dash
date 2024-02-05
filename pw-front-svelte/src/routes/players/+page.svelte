@@ -14,6 +14,7 @@
 			console.log(response);
 
 			data = response.data.playerSaves;
+			// console.log('player data:', data);
 		} catch (error) {
 			console.error('Error fetching players:', error);
 		} finally {

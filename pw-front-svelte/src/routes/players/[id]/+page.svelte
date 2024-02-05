@@ -3,24 +3,40 @@
 	import PalEntry from '@/components/players/palEntry.svelte';
 	import { api } from '@/lib/api';
 	import { PalWorldSavegame } from '@/lib/palworldSavegame';
-	import { Accordion, AccordionItem } from '@skeletonlabs/skeleton';
+	import {
+		Accordion,
+		AccordionItem,
+		getModalStore,
+		type ModalSettings
+	} from '@skeletonlabs/skeleton';
+
 	import { onMount } from 'svelte';
 	import Section from '@/components/section.svelte';
 
 	import { writable } from 'svelte/store';
 	import { palData, loadPalData } from '@/lib/store';
 
+	import {} from '@skeletonlabs/skeleton';
+
+	import Pen from 'svelte-material-icons/Pen.svelte';
+
 	export let data; // from page.js
+
+	const modalStore = getModalStore();
 
 	let playerData: PalWorldSavegame;
 
 	let ready: Boolean = false;
 	let failed: Boolean = false;
 
+	let pwdash__name: string;
+
 	onMount(async () => {
 		try {
 			const playerDataRes = await api.get('/paldex/' + data.id);
 			playerData = new PalWorldSavegame(playerDataRes.data.fileContents);
+
+			pwdash__name = playerDataRes.data.pwdash__name;
 
 			await loadPalData();
 
@@ -30,10 +46,42 @@
 			failed = true;
 		}
 	});
+
+	const modal: ModalSettings = {
+		type: 'prompt',
+		// Data
+		title: 'Enter Name',
+		body: 'Set a name for the Player ID.',
+		// Populates the input value and attributes
+		value: 'Skeleton',
+		valueAttr: { type: 'text', minlength: 3, maxlength: 32, required: true },
+		// Returns the updated response value
+		response: (r: string) => {
+			api.post('/players/name', {
+				id: data.id,
+				name: r
+			});
+		}
+	};
+
+	const triggerModal = () => {
+		modalStore.trigger(modal);
+	};
 </script>
 
 <Loader {ready} {failed}>
-	<div class="text-xl text-center break-all">Player {data.id}</div>
+	<div class="text-xl break-all flex flex-col flex-center gap-sm">
+		<div class="flex flex-center gap-sm">
+			{#if pwdash__name}
+				<div>{pwdash__name}</div>
+			{:else}
+				Player {data.id}
+			{/if}
+			<button on:click={triggerModal}><Pen /></button>
+		</div>
+
+		<!-- {#if pwdash__name}<div class="text-sm">ID: {data.id}</div>{/if} -->
+	</div>
 
 	<Section label="Captured Pals">
 		{#if playerData.palsCaptured.length}

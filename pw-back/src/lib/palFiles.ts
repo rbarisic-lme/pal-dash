@@ -8,6 +8,9 @@ interface listPlayerSaveItem {
   stats: string | any,
 }
 
+// write name to a file -- todo: let's exchange this with a DB later on
+const nameFileDir = './data/';
+
 export class PalFiles {
   static async listPlayerSavesWithEnv(): Promise<listPlayerSaveItem[]> {
     return this.listPlayerSaves(env.palDir, env.serverId, env.worldGuid);
@@ -19,10 +22,21 @@ export class PalFiles {
     try {
       const playerSaves = fs.readdirSync(saveGamesPath);
       
-      const returnSaves: listPlayerSaveItem[] = await Promise.all(playerSaves.map(async (save) => ({
-        value: save,
-        stats: await this.getFileDate(path.join(saveGamesPath, save)),
-      })));
+      const returnSaves: listPlayerSaveItem[] = await Promise.all(playerSaves.map(async (save) => {
+        let pwdash__name;
+        try {
+          pwdash__name = fs.readFileSync(nameFileDir + save?.slice(0, -4), 'utf8');
+        } catch {
+          // console.log('file for ' + save?.slice(0, -4) + ' not found')
+          pwdash__name = undefined;
+        }
+
+        return {
+          pwdash__name, 
+          value: save,
+          stats: await this.getFileDate(path.join(saveGamesPath, save)),
+        }
+      }));
 
       return returnSaves;
 

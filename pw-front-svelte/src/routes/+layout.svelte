@@ -8,11 +8,15 @@
 	import PHeader from '../components/landing/header.svelte';
 	import legalDisclaimer from '../data/legalDisclaimer';
 	import { label, title } from '@/lib/store';
-	import { AppBar } from '@skeletonlabs/skeleton';
+	import { AppBar, Modal } from '@skeletonlabs/skeleton';
 	import { goto } from '$app/navigation';
 
 	import ArrowLeft from 'svelte-material-icons/ArrowLeft.svelte';
 	import { page } from '$app/stores';
+
+	import { initializeStores } from '@skeletonlabs/skeleton';
+
+	initializeStores();
 
 	let currentRoute = '';
 	let topRoute = '';
@@ -35,6 +39,8 @@
 <svelte:head>
 	<title>{$title}</title>
 </svelte:head>
+
+<Modal />
 
 <AppBar class="sticky top-0 z-10">
 	<svelte:fragment slot="lead">

@@ -73,7 +73,7 @@
 
 	<Section label="Actions">
 		<slot>
-			<div class="grid grid-cols-3 gap-lg gap-y-xl">
+			<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-lg gap-y-xl">
 				{#each cards as { label, action, actionExternal, background, bgImage, icon } (label)}
 					<LCard {label} {action} {actionExternal} {background} {bgImage} {icon}></LCard>
 				{/each}
@@ -93,7 +93,7 @@
 				</div>
 			</div>
 
-			<div class="grid grid-cols-3 gap-x-lg gap-y-md">
+			<div class="grid grid-cols-2 lg:grid-cols-3 gap-x-lg gap-y-md">
 				{#each ytVideos.slice(1, 4) as video}
 					<YTCard {video}></YTCard>
 				{/each}

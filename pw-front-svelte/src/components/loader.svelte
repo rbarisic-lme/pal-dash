@@ -7,16 +7,21 @@
 </script>
 
 {#if failed}
-	<div class="flex justify-center items-center">
+	<div class="flex flex-col justify-center items-center gap-lg">
 		<div>Request Failed</div>
-		<button>Reload Page</button>
-		<button
-			on:click={() => {
-				window.location = '/';
-			}}
-		>
-			Go Back
-		</button>
+		<div class="grid grid-cols-2 gap-md">
+			<button class="btn variant-filled-primary" on:click={() => location.reload(true)}
+				>Reload Page</button
+			>
+			<button
+				class="btn variant-filled-primary"
+				on:click={() => {
+					window.location = '/';
+				}}
+			>
+				Go Back
+			</button>
+		</div>
 	</div>
 {:else if !ready}
 	<div class="w-full flex justify-center">
