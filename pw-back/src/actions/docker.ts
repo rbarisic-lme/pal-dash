@@ -35,7 +35,7 @@ router.get('/settings', (req: Request, res: Response) => {
 router.get('/status', (req: Request, res: Response): void => {
   try {
     const command = `
-      docker ps --format '{
+      docker ps --filter "ancestor=jammsen/palworld-dedicated-server" --format '{
         "ID":"{{ .ID }}",
         "CreatedAt": "{{ .CreatedAt }}",
         "Image": "{{ .Image }}",

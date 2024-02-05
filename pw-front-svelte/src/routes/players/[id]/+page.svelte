@@ -33,7 +33,7 @@
 </script>
 
 <Loader {ready} {failed}>
-	<div class="text-xl text-center">Player {data.id}</div>
+	<div class="text-xl text-center break-all">Player {data.id}</div>
 
 	<Section label="Captured Pals">
 		{#if playerData.palsCaptured.length}

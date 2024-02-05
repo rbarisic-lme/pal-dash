@@ -6,8 +6,10 @@ export const paldashTheme: CustomThemeConfig = {
 		// =~= Theme Properties =~=
 		// "--theme-font-family-base": `inter`,
 		// "--theme-font-family-heading": `poppins`,
-		"--theme-font-family-base": `system-ui`,
-		"--theme-font-family-heading": `system-ui`,
+		// "--theme-font-family-base": `system-ui`,
+		// "--theme-font-family-heading": `system-ui`,
+		"--theme-font-family-base": `A-OTF Shin Go Pro`,
+		"--theme-font-family-heading": `A-OTF Shin Go Pro`,
 		"--theme-font-color-base": "0 0 0",
 		"--theme-font-color-dark": "255 255 255",
 		"--theme-rounded-base": "9999px",

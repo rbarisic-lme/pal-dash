@@ -65,12 +65,17 @@
 		<!-- Suitability -->
 		<div>
 			<div>Suitability:</div>
-			<div class="flex flex-col gap-md">
+			<div class="grid grid-cols-6 gap-md">
 				{#each myPal.suitability as job}
-					<div class="flex gap-sm">
+					<div class="flex flex-col gap-sm relative">
 						<!-- {job.type} -->
-						<img src={`${PUBLIC_PALDEX_API_URL}${job.image}`} alt={job.type} />
-						{job.level}
+						<div
+							class="badge-icon variant-filled absolute -bottom-0 -right-0 z-10 text-shingo"
+							style="width: 1rem; height: 1rem;"
+						>
+							{job.level}
+						</div>
+						<img src={`${new URL(job.image, PUBLIC_PALDEX_API_URL)}`} alt={job.type} />
 					</div>
 				{/each}
 			</div>
