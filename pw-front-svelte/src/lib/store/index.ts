@@ -5,6 +5,8 @@ import type { DockerCompose, DockerStatus } from '../types/dockerComposeTypes';
 export const label = writable('');
 export const title = writable('');
 
+export const editMode = writable(false);
+
 export const dockerCompose = writable<DockerCompose | null>(null);
 export const dockerStatus = writable<DockerStatus | null>(null);
 

@@ -88,6 +88,7 @@ export default {
         'xl': '18px',
         '2xl': '38px',
         'lead': '54px',
+        'sublead': '28px',
       },
       spacing: {
         'xs': '4px',

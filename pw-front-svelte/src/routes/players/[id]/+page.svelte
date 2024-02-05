@@ -13,14 +13,15 @@
 	import { onMount } from 'svelte';
 	import Section from '@/components/section.svelte';
 
-	import { writable } from 'svelte/store';
-	import { palData, loadPalData } from '@/lib/store';
+	import { loadPalData } from '@/lib/store';
 
 	import {} from '@skeletonlabs/skeleton';
 
 	import Pen from 'svelte-material-icons/Pen.svelte';
 
 	export let data; // from page.js
+
+	import { label, title, editMode } from '@/lib/store';
 
 	const modalStore = getModalStore();
 
@@ -70,14 +71,15 @@
 </script>
 
 <Loader {ready} {failed}>
-	<div class="text-xl break-all flex flex-col flex-center gap-sm">
-		<div class="flex flex-center gap-sm">
+	<div class="text-sublead break-all flex flex-col flex-center gap-sm">
+		<div class="flex flex-center gap-lg">
 			{#if pwdash__name}
 				<div>{pwdash__name}</div>
 			{:else}
 				Player {data.id}
 			{/if}
-			<button on:click={triggerModal}><Pen /></button>
+
+			{#if $editMode}<button on:click={triggerModal}><Pen /></button>{/if}
 		</div>
 
 		<!-- {#if pwdash__name}<div class="text-sm">ID: {data.id}</div>{/if} -->

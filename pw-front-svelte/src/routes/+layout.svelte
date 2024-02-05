@@ -7,11 +7,12 @@
 
 	import PHeader from '../components/landing/header.svelte';
 	import legalDisclaimer from '../data/legalDisclaimer';
-	import { label, title } from '@/lib/store';
+	import { label, title, editMode } from '@/lib/store';
 	import { AppBar, Modal } from '@skeletonlabs/skeleton';
 	import { goto } from '$app/navigation';
 
 	import ArrowLeft from 'svelte-material-icons/ArrowLeft.svelte';
+	import Cog from 'svelte-material-icons/Cog.svelte';
 	import { page } from '$app/stores';
 
 	import { initializeStores } from '@skeletonlabs/skeleton';
@@ -51,6 +52,11 @@
 		{/if}
 	</svelte:fragment>
 	<div>PalDash - Control Panel</div>
+	<svelte:fragment slot="trail">
+		<button class="btn" on:click={() => editMode.set(!$editMode)}>
+			<Cog color={$editMode ? 'white' : 'black'} />
+		</button>
+	</svelte:fragment>
 </AppBar>
 
 <main
