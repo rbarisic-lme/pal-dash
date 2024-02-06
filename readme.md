@@ -1,5 +1,23 @@
 # PalDash - Palworld Server Dashboard & Control Panel
 
+## Setup 
+
+There's a build script available in the `./bin` folder of the project root.
+
+```
+chmod a+x ./bin/build-all.sh
+bin/build.sh
+```
+
+This starts a semi-interactive installer. Adjust build.sh and startup.sh in the folders `pw-back` and `pw-front-svelte` according to your environment variables.
+
+It's important to point the environment to the right folders, but since the frontend uses sveltekit, the env variables have to be declared at __runtime__. This is done by running the build.sh, which contains environment variables as argument overloads.
+
+#### Note
+
+I've tried to make this work as a docker container but there's still some problems with the environment variables
+and accessing storage & docker ps command. I'll fix this later on, if I find the time.
+
 ## Compatibility
 
 This Control Panel makes a few assumptions about your Setup:
