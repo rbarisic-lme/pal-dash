@@ -2,21 +2,17 @@ import axios from 'axios';
 import { cacheData, getCachedData } from '@rbarisic/local-storage-cache';
 import { PUBLIC_YT_API_KEY } from '$env/static/public';
 
-// Set your YouTube API key
-const apiKey = PUBLIC_YT_API_KEY;
-
 // Create and configure the Axios instance
 const youtubeAPI = axios.create({
   baseURL: 'https://www.googleapis.com/youtube/v3',
   params: {
-    key: apiKey,
+    key: PUBLIC_YT_API_KEY,
   },
 });
 
 // You can add interceptors or other configurations if needed
 
 export default youtubeAPI;
-
 
 export const fetchLivestreams = async (): Promise<any[] | undefined> => {
   let ytvideos = getCachedData('yt-streams');
