@@ -7,7 +7,8 @@ There's a build script available in the `./bin` folder of the project root.
 
 #### 1. Build the project
 ```
-chmod a+x ./bin/build-all.sh
+chmod a+x ./bin/setup.sh
+chmod a+x ./setup.sh
 bin/build.sh
 ```
 
