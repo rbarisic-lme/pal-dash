@@ -22,7 +22,7 @@ cd "$(dirname "$0")/.."
 chmod a+x bin/*
 
 # Display current working directory
-echo "Current working directory (should end with '/pal-dashboard'): $(pwd)"
+echo "Current working directory (should end with '/pal-dash'): $(pwd)"
 
 read -p "Do you want to continue? (y/n): " answer
 
