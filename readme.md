@@ -1,7 +1,7 @@
 
 # PalDash - Palworld Server Dashboard & Control Panel
-<img width="960" alt="image" src="https://github.com/rbarisic-lme/pal-dash/assets/54026388/6acaa932-f551-4c55-8075-65807b4f1e44">
-<img width="697" alt="image" src="https://github.com/rbarisic-lme/pal-dash/assets/54026388/840bebad-9b96-4706-ac19-02654f67355e">
+<img width="600" alt="image" src="https://github.com/rbarisic-lme/pal-dash/assets/54026388/6acaa932-f551-4c55-8075-65807b4f1e44">
+<img width="600" alt="image" src="https://github.com/rbarisic-lme/pal-dash/assets/54026388/840bebad-9b96-4706-ac19-02654f67355e">
 
 ## Setup
 
