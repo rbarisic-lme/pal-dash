@@ -15,6 +15,8 @@ const youtubeAPI = axios.create({
 export default youtubeAPI;
 
 export const fetchLivestreams = async (): Promise<any[] | undefined> => {
+  if(PUBLIC_YT_API_KEY === 'NO_STREAM') return []
+  
   let ytvideos = getCachedData('yt-streams');
   if(ytvideos) {
     return ytvideos;
