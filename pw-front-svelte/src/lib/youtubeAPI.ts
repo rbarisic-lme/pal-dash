@@ -1,8 +1,9 @@
 import axios from 'axios';
 import { cacheData, getCachedData } from '@rbarisic/local-storage-cache';
+import { PUBLIC_YT_API_KEY } from '$env/static/public';
 
 // Set your YouTube API key
-const apiKey = 'AIzaSyAIVACRtpk7I7utnQcd6XFHXYVy8iKgXQk';
+const apiKey = PUBLIC_YT_API_KEY;
 
 // Create and configure the Axios instance
 const youtubeAPI = axios.create({
