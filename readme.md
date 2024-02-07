@@ -3,6 +3,8 @@
 <img width="600" alt="image" src="https://github.com/rbarisic-lme/pal-dash/assets/54026388/6acaa932-f551-4c55-8075-65807b4f1e44">
 <img width="600" alt="image" src="https://github.com/rbarisic-lme/pal-dash/assets/54026388/840bebad-9b96-4706-ac19-02654f67355e">
 
+Palworld Dashboard and Control Panel for Self-Hosted Dedicated Palworld Servers
+
 ## Setup
 
 There's a build script available in the `./bin` folder of the project root.
