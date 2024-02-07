@@ -19,3 +19,9 @@ pw-back/vendor/palworld-convert-save/lib/rawdata/__pycache__/*
 __pycache__/*
 
 .env.production
+
+pw-back.service
+pw-front.service
+
+!vendor/.dont-touch
+vendor/*
