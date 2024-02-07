@@ -7,6 +7,14 @@
 
 There's a build script available in the `./bin` folder of the project root.
 
+### Install Dependencies
+
+- Install [Docker]([https://docs.docker.com/compose/install/](https://docs.docker.com/engine/install/ubuntu/)) if not installed  yet
+-  
+```
+sudo apt install wget unzip 
+```
+
 #### 1. Build the project
 ```
 chmod a+x ./bin/setup.sh
