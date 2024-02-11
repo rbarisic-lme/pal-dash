@@ -25,3 +25,4 @@ pw-front.service
 
 !vendor/.dont-touch
 vendor/*
+pw-back/.env
