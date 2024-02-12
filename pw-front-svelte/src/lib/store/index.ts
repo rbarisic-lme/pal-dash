@@ -28,6 +28,6 @@ export const loadDockerStatus = async () => {
 }
 
 export const initializeData = async () => {
-  loadDockerCompose();
-  loadDockerStatus();
+  await loadDockerCompose();
+  await loadDockerStatus();
 }

@@ -20,7 +20,8 @@ const config = {
 			publicPrefix: 'PUBLIC_'
 		},
 		alias: {
-			'@/*': 'src'
+			'@/*': 'src',
+			'@@/*': '../shared/',
 		}
 	}
 };

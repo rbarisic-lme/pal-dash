@@ -81,8 +81,8 @@
 		</slot>
 	</Section>
 
-	<Section label="Streams">
-		{#if ytVideos && ytVideos.length}
+	{#if ytVideos && ytVideos.length}
+		<Section label="Streams">
 			<!-- <div class="flex justify-center flex-wrap lg:flex-no-wrap justify-start gap-lg"> -->
 			<div class="flex justify-center justify-start gap-lg gap-y-xl">
 				<!-- Jumbo Card -->
@@ -98,6 +98,6 @@
 					<YTCard {video}></YTCard>
 				{/each}
 			</div>
-		{/if}
-	</Section>
+		</Section>
+	{/if}
 </Loader>

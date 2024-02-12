@@ -30,14 +30,19 @@ export class YamlFile {
   }
 
   static readDockerCompose(): JSON {
-    const file = fs.readFileSync(path.join(env.rootDir, 'docker-compose.yml'), 'utf8')
-    const fileYaml = YAML.parse(file)
+    const filenames = ['default.env', 'docker-compose.yml']
+    
+    for (const filename of filenames) {
+      try {
+        const file = fs.readFileSync(path.join(env.rootDir, filename), 'utf8')
+        const fileYaml = YAML.parse(file)
+        return YamlFile.sanitizeDockerCompose(fileYaml);
 
-    return YamlFile.sanitizeDockerCompose(fileYaml);
+      } catch(e) {
+        console.warn(`Error reading .env config in ${filename}, : ${e.message}, skipping to next entry`);
+      }
+    }
 
-    // const saneFile = fileYaml.filter(line => {
-    //   console.error('lINAA', line)
-    //   return line
-    // })
+    throw new Error(`Failed to read any .env config file`);
   }
 }

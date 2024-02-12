@@ -4,6 +4,4 @@ export class Player {
   constructor(id: string) {
     this.id = id;
   }
-
-
 }
