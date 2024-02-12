@@ -3,7 +3,6 @@ import { Strategy as JwtStrategy, ExtractJwt } from 'passport-jwt';
 import jwt from 'jsonwebtoken';
 import { env } from '@/config.ts';
 import { Express } from 'express-serve-static-core';
-import bcrypt from 'bcrypt';
 
 // Export the initialize function
 export const initializeAuth = (app: Express) => {

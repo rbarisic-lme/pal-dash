@@ -3,7 +3,7 @@ import { env } from '@/config.ts';
 import { generateToken } from '@/passport-init.ts';
 import express, { Router, Request, Response } from 'express';
 import passport from 'passport';
-import bcrypt from 'bcrypt';
+import bcrypt from 'bcryptjs';
 
 const router = express.Router();
 

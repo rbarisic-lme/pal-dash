@@ -1,5 +1,5 @@
 // Create a hashed password
-import bcrypt from 'bcrypt';
+import bcrypt from 'bcryptjs';
 
 const args = process.argv.slice(2);
 
