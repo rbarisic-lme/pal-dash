@@ -23,6 +23,8 @@ __pycache__/*
 pw-back.service
 pw-front.service
 
+!vendor/
 !vendor/.dont-touch
-vendor/*
+vendor/*/*
+
 pw-back/.env

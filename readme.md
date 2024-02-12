@@ -1,22 +1,47 @@
 
 # PalDash - Palworld Server Dashboard & Control Panel
+<img width="600" alt="image" src="https://github.com/rbarisic-lme/pal-dash/assets/54026388/6acaa932-f551-4c55-8075-65807b4f1e44">
+<img width="600" alt="image" src="https://github.com/rbarisic-lme/pal-dash/assets/54026388/840bebad-9b96-4706-ac19-02654f67355e">
+
+Palworld Dashboard and Control Panel for Self-Hosted Dedicated Palworld Servers
 
 ## Setup
 
 There's a build script available in the `./bin` folder of the project root.
 
-#### 1. Build the project
+#### 1. Install Dependencies
+
+##### Docker & Docker-Compose
+- Install [Docker](https://docs.docker.com/engine/install/ubuntu/) if not installed  yet
+- Install [Docker-Compose](https://docs.docker.com/compose/install/)
+- Important: Even if you are not running Palworld via Docker Image, this is still needed for the [Paldex API](https://github.com/mlg404/palworld-paldex-api) that will be run alongside PalDash
+
+##### Packages
 ```
-chmod a+x ./bin/build-all.sh
-bin/build.sh
+sudo apt install wget unzip 
+```
+
+#### 2. Install PalDash
+```
+chmod a+x ./setup.sh
 ```
 
 This starts a semi-interactive installer.
-Adjust build.sh and startup.sh in the folders `pw-back` and `pw-front-svelte` according to your environment variables.
-
+You will be prompted to set environment variables and supply the right folders used for sourcing the data.
 It's important to point the environment to the right folders, but since the frontend uses sveltekit, the env variables have to be declared at __runtime__. This is done by running the build.sh, which contains environment variables as argument overloads.
 
-### 2. Install services
+### Manual Build Steps
+
+#### Building the Projects
+```
+chmod a+x ./bin/build-all.sh
+bin/build-all.sh
+```
+This will install the backend and frontend as runnable services:
+- pw-back
+- pw-front
+
+#### Installing Services
 ```
 chmod a+x ./bin/install-services.sh
 bin/install-services.sh
@@ -26,6 +51,7 @@ This will install the backend and frontend as runnable services:
 - pw-front
 
 These will run in the background and are manageable via systemd.
+
 #### Service Commands
 ```
 sudo service pw-back [start|stop|status|reload]

@@ -1,14 +1,12 @@
 import axios from 'axios';
 import { cacheData, getCachedData } from '@rbarisic/local-storage-cache';
-
-// Set your YouTube API key
-const apiKey = 'AIzaSyAIVACRtpk7I7utnQcd6XFHXYVy8iKgXQk';
+import { PUBLIC_YT_API_KEY } from '$env/static/public';
 
 // Create and configure the Axios instance
 const youtubeAPI = axios.create({
   baseURL: 'https://www.googleapis.com/youtube/v3',
   params: {
-    key: apiKey,
+    key: PUBLIC_YT_API_KEY,
   },
 });
 
@@ -16,8 +14,9 @@ const youtubeAPI = axios.create({
 
 export default youtubeAPI;
 
-
 export const fetchLivestreams = async (): Promise<any[] | undefined> => {
+  if(PUBLIC_YT_API_KEY === 'NO_STREAM') return []
+  
   let ytvideos = getCachedData('yt-streams');
   if(ytvideos) {
     return ytvideos;
