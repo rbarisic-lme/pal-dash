@@ -23,6 +23,7 @@ YT_API_KEY=$(prompt_user "Enter YT_API_KEY (Youtube API Key)" "NO_STREAMS")
 echo "Installing npm dependencies for pw-front..."
 npm install
 
+# Build the Package
 export PUBLIC_SERVER_URL=$SERVER_URL
 export PUBLIC_PALDEX_API_URL=$PALDEX_API_URL
 export PUBLIC_YT_API_KEY=$YT_API_KEY
