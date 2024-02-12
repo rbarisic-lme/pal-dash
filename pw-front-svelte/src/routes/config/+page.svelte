@@ -44,7 +44,7 @@
 			<div class="text-xl">Server Settings</div>
 			<div class="text-right">Docker-Compose Version: {$dockerCompose?.version}</div>
 		</header>
-		{#if getMissingkeys.length}
+		{#if missingKeys.length}
 			<Accordion class="text-yellow-light">
 				<AccordionItem>
 					<svelte:fragment slot="lead"><Information size="18px" /></svelte:fragment>
