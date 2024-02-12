@@ -13,7 +13,7 @@ echo ""
 cd "$(dirname "$0")/.."
 
 # Display current working directory
-echo "Current working directory (should end with '/pal-dashboard'): $(pwd)"
+echo "Current working directory (should end with '/pal-dash'): $(pwd)"
 
 # Ask user if they want to continue
 read -p "Do you want to continue? (y/n): " answer

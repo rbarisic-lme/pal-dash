@@ -11,7 +11,7 @@ echo "thx to Victor Eyer a.k.a. mlg404 for the awesome API!"
 cd "$(dirname "$0")/.."
 
 # Display current working directory
-echo "Current working directory (should end with '/pal-dashboard'): $(pwd)"
+echo "Current working directory (should end with '/pal-dash'): $(pwd)"
 
 zipfile_name=paldex-api.zip
 unzipped_name=palworld-paldex-api-1.2.0 # unzip and note name before updating this script
