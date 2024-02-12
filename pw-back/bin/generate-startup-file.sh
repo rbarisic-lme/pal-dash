@@ -117,7 +117,7 @@ export WORLD_GUID=$WORLD_GUID
 export PYTHON_RUNTIME=$PYTHON_RUNTIME
 
 # Run the Node.js script
-$WHICH_NODE /home/xiq/srv/pal-dashboard/pw-back/dist/index.cjs
+$WHICH_NODE $(pwd)/dist/index.cjs
 "
 
 # Create the startup script under the specified working directory
