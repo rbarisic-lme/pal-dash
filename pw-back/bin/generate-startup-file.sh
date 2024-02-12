@@ -36,14 +36,10 @@ echo ""
 ls -1 $ROOT_DIR
 echo ""
 
-read -p "Did it contain the files? (yes/no): " user_response
-if [ "$user_response" == "yes" ]; then
-    echo "Great! Proceeding with the script."
-elif [ "$user_response" == "no" ]; then
+read -p "Did it contain the files? (y/n): " user_response
+
+if [[ "$user_response" != "y" && "$user_response" != "Y" ]]; then
     echo "Please check and run the script again."
-    exit 1
-else
-    echo "Invalid response. Please enter 'yes' or 'no'."
     exit 1
 fi
 
