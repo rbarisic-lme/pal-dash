@@ -11,12 +11,12 @@ There's a build script available in the `./bin` folder of the project root.
 
 #### 1. Install Dependencies
 
-##### Docker & Docker-Compose
+##### 1.1 Docker & Docker-Compose
 - Install [Docker](https://docs.docker.com/engine/install/ubuntu/) if not installed  yet
 - Install [Docker-Compose](https://docs.docker.com/compose/install/)
 - Important: Even if you are not running Palworld via Docker Image, this is still needed for the [Paldex API](https://github.com/mlg404/palworld-paldex-api) that will be run alongside PalDash
 
-##### Packages
+##### 1.2 Packages
 ```
 sudo apt install wget unzip 
 ```
