@@ -112,6 +112,6 @@
   "ts-node": {
     "esm": true
   },
-  "include": ["src/**/*.ts"],
+  "include": ["src/**/*.ts", "tasks/pwGen.js"],
   "exclude": ["node_modules", "./*.ts", "__test__"],
 }

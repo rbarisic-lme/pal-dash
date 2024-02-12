@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { writable, type Writable } from 'svelte/store';
 	import { readable } from 'svelte/store';
 	import { api } from '$lib/api';
 	import { onMount, onDestroy } from 'svelte';
@@ -15,8 +16,19 @@
 
 	$: service = $dockerCompose?.services['palworld-dedicated-server'] as ServiceConfiguration;
 
+	// todo: put these types in a shared directory, as they come from the backend
+	type RCONPlayer = {
+		name: string;
+		playeruid: string;
+		steamid: string;
+	};
+
+	type RCONShowPlayersResult = {
+		players: RCONPlayer[];
+	};
+
 	let regPlayerCount: number = 0;
-	$: onlinePlayerCount = 0;
+	const onlinePlayers: Writable<RCONPlayer[]> = writable<RCONPlayer[]>([]);
 
 	let isLoading = false;
 
@@ -31,8 +43,8 @@
 
 	const getOnlinePlayers = async () => {
 		try {
-			const rconPlayercountResult = await api.get('/rcon/showplayers');
-			onlinePlayerCount = 999;
+			const result = await api.get('/rcon/showplayers');
+			onlinePlayers.set(result.data.players);
 		} catch (e) {
 			console.error(e);
 		}
@@ -96,7 +108,9 @@
 	</div>
 
 	<div class="card p-4 h-full">
-		<div class="text-lg">{onlinePlayerCount} Player{onlinePlayerCount > 1 ? 's' : ''} Online</div>
+		<div class="text-lg">
+			{$onlinePlayers.length} Player{$onlinePlayers.length > 1 ? 's' : ''} Online
+		</div>
 	</div>
 
 	<!-- break after 3 elements -->

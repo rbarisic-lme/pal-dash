@@ -1,3 +1,4 @@
+import forms from '@tailwindcss/forms';
 import { paldashTheme } from './paldash-theme.ts';
 
 // @ts-check
@@ -112,6 +113,7 @@ export default {
     }
   },
 	plugins: [
+    forms,
     skeleton({
       themes: {
         custom: [paldashTheme],

@@ -12,6 +12,11 @@ interface ServerConfig {
   serverId: string,
   worldGuid: string,
   pythonRuntime: string,
+  admin: {
+    username: string,
+    password: string,
+  }
+  appSecret: string,
   // Add other configurations here
 }
 
@@ -22,6 +27,11 @@ const config: ServerConfig = {
   serverId: procEnv.SERVER_ID || '',
   worldGuid: procEnv.WORLD_GUID || '',
   pythonRuntime: procEnv.PYTHON_RUNTIME || 'python',
+  admin: {
+    username: procEnv.ADMIN_USERNAME || '',
+    password: procEnv.ADMIN_PASSWORD || '',
+  },
+  appSecret: procEnv.APP_SECRET || '',
   // Add other configurations here
 };
 

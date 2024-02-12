@@ -1,7 +1,12 @@
 import dotenv from 'dotenv';
 import cors from 'cors';
 import express, { Request, Response, NextFunction } from 'express';
+import session from 'express-session';
+
+import { initializeAuth } from './passport-init.ts';
+
 import routes from './routes.ts';
+import { env } from './config.ts';
 
 // Init .env
 dotenv.config();
@@ -12,15 +17,25 @@ const port = process.env.PORT || 3000;
 // CORS middleware
 app.use(cors());
 
-
 // Middleware to set Content-Type to application/json for all responses
 app.use((req: Request, res: Response, next: NextFunction) => {
   res.setHeader('Content-Type', 'application/json');
   next();
 });
 
-// Middleware to parse JSON requests
+// Middleware to parse JSON requests and urlencoded data
 app.use(express.json());
+// app.use(express.urlencoded({ extended: true }));
+
+// Setup express-session middleware
+app.use(session({
+  secret: env.appSecret, // Change this to a secure secret key
+  resave: false,
+  saveUninitialized: false,
+}));
+
+// Initialize Passport
+initializeAuth(app);
 
 // Use the imported routes
 Object.entries(routes).forEach(([path, route]) => {

@@ -10,3 +10,5 @@
     align-items: center;
   }
 }
+
+html, body { @apply h-full overflow-hidden; }

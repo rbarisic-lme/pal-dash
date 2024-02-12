@@ -3,7 +3,7 @@ import express, { Router, Request, Response } from 'express';
 
 const router = express.Router();
 
-router.get('/', (req: Request, res: Response) => {
+router.get('/', async (req: Request, res: Response) => {
   const jsonResponse = { message: 'hello world!' };
   res.json(jsonResponse);
 });

@@ -1,9 +1,13 @@
-
 # PalDash - Palworld Server Dashboard & Control Panel
 <img width="600" alt="image" src="https://github.com/rbarisic-lme/pal-dash/assets/54026388/6acaa932-f551-4c55-8075-65807b4f1e44">
 <img width="600" alt="image" src="https://github.com/rbarisic-lme/pal-dash/assets/54026388/840bebad-9b96-4706-ac19-02654f67355e">
 
 Palworld Dashboard and Control Panel for Self-Hosted Dedicated Palworld Servers
+
+## Admin Mode
+
+An admin account currently has to be set up manually.
+run `npm run password <yourpassword>` in `./pw-back/` to create a hashed password, then copy it into the build process, whether you use .env files or the `./setup.sh` script
 
 ## Setup
 
