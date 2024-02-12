@@ -25,7 +25,7 @@ npm install
 
 export PUBLIC_SERVER_URL=$SERVER_URL
 export PUBLIC_PALDEX_API_URL=$PALDEX_API_URL
-export YT_API_KEY=$YT_API_KEY
+export PUBLIC_YT_API_KEY=$YT_API_KEY
 
 npm run build
 
