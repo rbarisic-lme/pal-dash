@@ -15,13 +15,32 @@
 
 	$: service = $dockerCompose?.services['palworld-dedicated-server'] as ServiceConfiguration;
 
-	let playerCount: number;
+	let regPlayerCount: number = 0;
+	$: onlinePlayerCount = 0;
 
 	let isLoading = false;
 
+	const getPlayerCount = async () => {
+		try {
+			const playerResult = await api.get('/players');
+			regPlayerCount = playerResult.data?.playerSaves?.length;
+		} catch (e) {
+			console.error(e);
+		}
+	};
+
+	const getOnlinePlayers = async () => {
+		try {
+			const rconPlayercountResult = await api.get('/rcon/showplayers');
+			onlinePlayerCount = 999;
+		} catch (e) {
+			console.error(e);
+		}
+	};
+
 	onMount(async () => {
-		const result = await api.get('/players');
-		playerCount = result.data?.playerSaves?.length;
+		await getPlayerCount();
+		await getOnlinePlayers();
 	});
 
 	let serverStatusInterval = setInterval(async () => {
@@ -73,8 +92,15 @@
 	</div>
 
 	<div class="card p-4 h-full">
-		<div class="text-lg">Registered Players: {playerCount}</div>
+		<div class="text-lg">{regPlayerCount} Registered Player{regPlayerCount > 1 ? 's' : ''}</div>
 	</div>
+
+	<div class="card p-4 h-full">
+		<div class="text-lg">{onlinePlayerCount} Player{onlinePlayerCount > 1 ? 's' : ''} Online</div>
+	</div>
+
+	<!-- break after 3 elements -->
+	<div class="w-full"></div>
 
 	<div class="card p-4 h-full">
 		<div class="text-lg">Running since {$dockerStatus?.Status.replace('Up', '')}</div>
