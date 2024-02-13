@@ -96,8 +96,11 @@ ADMIN_PASSWORD_HASHED=$(npm run password "$admin_password" | tail -n 1)
 
 echo "Your hashed password is: $ADMIN_PASSWORD_HASHED"
 
+sleep 2
+
 APP_SECRET=$(openssl rand -hex 16)
-echo "Generated Random 32-char App Secret using OpenSSL: $APP_SECRET"
+printf "\nGenerated Random 32-char App Secret using OpenSSL: $APP_SECRET\n\n"
+
 
 # Display the provided information for confirmation
 echo "Provided information:"
