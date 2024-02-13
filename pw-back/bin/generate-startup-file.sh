@@ -92,7 +92,7 @@ RANDOM_CHARS=$(LC_CTYPE=C tr -dc 'a-zA-Z0-9' < /dev/urandom | head -c 4)
 ADMIN_USERNAME=$(prompt_user "Enter ADMIN Username" "admin-$RANDOM_CHARS")
 ADMIN_PASSWORD=$(prompt_user "Enter ADMIN Password" "$(generate_random_password 12)")
 
-ADMIN_PASSWORD_HASHED=$(npm run password "$admin_password")
+ADMIN_PASSWORD_HASHED=$(npm run password "$admin_password" | tail -n 1)
 
 echo "Your hashed password is: $ADMIN_PASSWORD_HASHED"
 
