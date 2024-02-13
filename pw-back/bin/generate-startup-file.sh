@@ -89,10 +89,10 @@ fi
 # Generate 4 random characters to add to default admin name
 RANDOM_CHARS=$(LC_CTYPE=C tr -dc 'a-zA-Z0-9' < /dev/urandom | head -c 4)
 
-ADMIN_USER=$(prompt_user "Enter ADMIN Username" "admin-$RANDOM_CHARS")
+ADMIN_USERNAME=$(prompt_user "Enter ADMIN Username" "admin-$RANDOM_CHARS")
 ADMIN_PASSWORD=$(prompt_user "Enter ADMIN Password" "$(generate_random_password 12)")
 
-ADMIN_PASSWORD_HASHED=npm run password "$admin_password"
+ADMIN_PASSWORD_HASHED=$(npm run password "$admin_password")
 
 echo "Your hashed password is: $ADMIN_PASSWORD_HASHED"
 
@@ -132,7 +132,7 @@ export SERVER_ID=$SERVER_ID
 export WORLD_GUID=$WORLD_GUID
 export PYTHON_RUNTIME=$PYTHON_RUNTIME
 export APP_SECRET=$APP_SECRET
-export ADMIN_USERNAME=$ADMIN_USERNAME"
+export ADMIN_USERNAME=$ADMIN_USERNAME
 export ADMIN_PASSWORD=$ADMIN_PASSWORD_HASHED
 
 # Run the Node.js script
