@@ -8,12 +8,7 @@ function prompt_user {
 }
 
 generate_random_password() {
-  # Define the set of characters
-  charset="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()_-+=<>?{}[]"
-
-  # Generate a random password with a specified length
-  local length=$1
-  LC_CTYPE=C tr -dc "$charset" < /dev/urandom | head -c "$length"
+    openssl rand -base64 18
 }
 
 # Set the working directory to the project root
