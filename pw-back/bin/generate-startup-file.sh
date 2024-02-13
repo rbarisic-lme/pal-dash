@@ -89,6 +89,8 @@ fi
 # Generate 4 random characters to add to default admin name
 RANDOM_CHARS=$(LC_CTYPE=C tr -dc 'a-zA-Z0-9' < /dev/urandom | head -c 4)
 
+echo "We will now generate your admin USERNAME and PASSWORD."
+echo "Please write them down!"
 ADMIN_USERNAME=$(prompt_user "Enter ADMIN Username" "admin-$RANDOM_CHARS")
 ADMIN_PASSWORD=$(prompt_user "Enter ADMIN Password" "$(generate_random_password 12)")
 
