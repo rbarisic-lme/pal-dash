@@ -7,6 +7,15 @@ function prompt_user {
     echo ${user_input:-$2}
 }
 
+generate_random_password() {
+  # Define the set of characters
+  charset="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()_-+=<>?{}[]"
+
+  # Generate a random password with a specified length
+  local length=$1
+  LC_CTYPE=C tr -dc "$charset" < /dev/urandom | head -c "$length"
+}
+
 # Set the working directory to the project root
 working_dir="$(dirname "$0")/.."
 
@@ -82,6 +91,19 @@ else
   sleep 1
 fi
 
+# Generate 4 random characters to add to default admin name
+RANDOM_CHARS=$(LC_CTYPE=C tr -dc 'a-zA-Z0-9' < /dev/urandom | head -c 4)
+
+ADMIN_USER=$(prompt_user "Enter ADMIN Username" "admin-$RANDOM_CHARS")
+ADMIN_PASSWORD=$(prompt_user "Enter ADMIN Password" "$(generate_random_password 12)")
+
+ADMIN_PASSWORD_HASHED=npm run password "$admin_password"
+
+echo "Your hashed password is: $ADMIN_PASSWORD_HASHED"
+
+APP_SECRET=$(openssl rand -hex 16)
+echo "Generated Random 32-char App Secret using OpenSSL: $APP_SECRET"
+
 # Display the provided information for confirmation
 echo "Provided information:"
 echo "PORT: $PORT"
@@ -90,6 +112,9 @@ echo "PAL_DIR: $PAL_DIR"
 echo "SERVER_ID: $SERVER_ID"
 echo "WORLD_GUID: $WORLD_GUID"
 echo "PYTHON_RUNTIME: $PYTHON_RUNTIME"
+echo "ADMIN_USERNAME: $ADMIN_USERNAME"
+echo "ADMIN_PASSWORD: $ADMIN_PASSWORD_HASHED"
+echo "APP_SECRET: $APP_SECRET"
 echo ""
 
 # Confirm with the user
@@ -111,6 +136,9 @@ export PAL_DIR=$PAL_DIR
 export SERVER_ID=$SERVER_ID
 export WORLD_GUID=$WORLD_GUID
 export PYTHON_RUNTIME=$PYTHON_RUNTIME
+export APP_SECRET=$APP_SECRET
+export ADMIN_USERNAME=$ADMIN_USERNAME"
+export ADMIN_PASSWORD=$ADMIN_PASSWORD_HASHED
 
 # Run the Node.js script
 $WHICH_NODE $(pwd)/dist/index.cjs

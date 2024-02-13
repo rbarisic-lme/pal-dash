@@ -22,8 +22,11 @@ There's a build script available in the `./bin` folder of the project root.
 
 ##### 1.2 Packages
 ```
-sudo apt install wget unzip 
+sudo apt install wget unzip openssl 
 ```
+
+- wget and unzip: used for downloading parts of the project
+- openssl: used to generate random secrets
 
 #### 2. Install PalDash
 ```
