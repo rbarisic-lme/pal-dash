@@ -20,16 +20,15 @@ router.post('/login', async (req, res) => {
   // For simplicity, we're assuming the username and password from env match
   const passwordMatches = await bcrypt.compare(password, env.admin.password);
 
-  console.error(env.admin.password)
-  console.error('pw:', password)
-  console.error('matches', passwordMatches)
-  
   if (username === env.admin.username && passwordMatches) {
+    console.info(`[${new Date().toLocaleString()}] User ${env.admin.username} logged in with IP: ${req.ip}`)
+
     // Generate JWT token
     const token = generateToken(username)
 
     res.json({ token });
   } else {
+    console.warn(`[${new Date().toLocaleString()}] Failed login for user ${env.admin.username} with IP: ${req.ip}`)
     res.status(401).json({ message: 'Invalid credentials' });
   }
 });
