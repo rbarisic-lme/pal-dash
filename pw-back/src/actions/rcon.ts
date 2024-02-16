@@ -5,7 +5,8 @@ import passport from 'passport';
 
 const router = express.Router();
 
-router.get('/showplayers', passport.authenticate('jwt', { session: false }), (req: Request, res: Response) => {
+// router.get('/showplayers', passport.authenticate('jwt', { session: false }), (req: Request, res: Response) => {
+  router.get('/showplayers', (req: Request, res: Response) => {
 
   const containerName = 'palworld-dedicated-server';
   const commandToRun = 'rcon "ShowPlayers"';

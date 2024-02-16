@@ -21,7 +21,9 @@ router.post('/login', async (req, res) => {
   const passwordMatches = await bcrypt.compare(password, env.admin.password);
 
   console.error(env.admin.password)
-
+  console.error('pw:', password)
+  console.error('matches', passwordMatches)
+  
   if (username === env.admin.username && passwordMatches) {
     // Generate JWT token
     const token = generateToken(username)
