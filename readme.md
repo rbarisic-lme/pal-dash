@@ -20,6 +20,9 @@ There's a build script available in the `./bin` folder of the project root.
 - Install [Docker-Compose](https://docs.docker.com/compose/install/)
 - Important: Even if you are not running Palworld via Docker Image, this is still needed for the [Paldex API](https://github.com/mlg404/palworld-paldex-api) that will be run alongside PalDash
 
+##### 1.1.1 CouchDB
+- Warning: The newest version requires CouchDB. please re-run the `setup.sh` to ensure it's working.
+
 ##### 1.2 Packages
 ```
 sudo apt install wget unzip openssl 

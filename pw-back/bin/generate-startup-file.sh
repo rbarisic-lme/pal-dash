@@ -104,6 +104,12 @@ APP_SECRET=$(openssl rand -hex 16)
 printf "\nGenerated Random 32-char App Secret using OpenSSL: $APP_SECRET\n\n"
 
 
+COUCHDB_URL=$(prompt_user "Enter ADMIN Password" "127.0.0.1:5984/")
+COUCHDB_COOKIE=$(prompt_user "Enter ADMIN Password" "7F036914FA8642C8A698BFF053CB9E50")
+COUCHDB_DB=$(prompt_user "Enter ADMIN Password" "pal-dash")
+COUCHDB_USER=$(prompt_user "Enter ADMIN Password" "admin")
+COUCHDB_PW=$(prompt_user "Enter ADMIN Password" "admin-password")
+
 # Display the provided information for confirmation
 echo "Provided information:"
 echo "PORT: $PORT"
@@ -115,6 +121,11 @@ echo "PYTHON_RUNTIME: $PYTHON_RUNTIME"
 echo "ADMIN_USERNAME: $ADMIN_USERNAME"
 echo "ADMIN_PASSWORD: $ADMIN_PASSWORD_HASHED"
 echo "APP_SECRET: $APP_SECRET"
+echo "COUCHDB_URL: $COUCHDB_URL" 
+echo "COUCHDB_COOKIE: $COUCHDB_COOKIE" 
+echo "COUCHDB_DB: $COUCHDB_DB" 
+echo "COUCHDB_USER: $COUCHDB_USER" 
+echo "COUCHDB_PW: $COUCHDB_PW" 
 echo ""
 
 # Confirm with the user
@@ -139,6 +150,11 @@ export PYTHON_RUNTIME=$PYTHON_RUNTIME
 export APP_SECRET=$APP_SECRET
 export ADMIN_USERNAME=$ADMIN_USERNAME
 export ADMIN_PASSWORD=$ADMIN_PASSWORD_HASHED
+export COUCHDB_URL=$COUCHDB_URL 
+export COUCHDB_COOKIE=$COUCHDB_COOKIE 
+export COUCHDB_DB=$COUCHDB_DB 
+export COUCHDB_USER=$COUCHDB_USER 
+export COUCHDB_PW=$COUCHDB_PW 
 
 # Run the Node.js script
 $WHICH_NODE $(pwd)/dist/index.js
