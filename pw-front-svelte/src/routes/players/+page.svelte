@@ -5,16 +5,14 @@
 	import Loader from '@/components/loader.svelte';
 	import PlayerItem from '@/components/players/playerItem.svelte';
 
-	let data;
+	let data: any;
 	let isLoading = false;
 
 	onMount(async () => {
 		try {
 			const response = await api.get('/players');
-			console.log(response);
 
-			data = response.data.playerSaves;
-			// console.log('player data:', data);
+			data = response.data.players;
 		} catch (error) {
 			console.error('Error fetching players:', error);
 		} finally {

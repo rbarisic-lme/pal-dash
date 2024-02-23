@@ -3,12 +3,7 @@
 	import PalEntry from '@/components/players/palEntry.svelte';
 	import { api } from '@/lib/api';
 	import { PalWorldSavegame } from '@/lib/palworldSavegame';
-	import {
-		Accordion,
-		AccordionItem,
-		getModalStore,
-		type ModalSettings
-	} from '@skeletonlabs/skeleton';
+	import { getModalStore, type ModalSettings } from '@skeletonlabs/skeleton';
 
 	import { onMount } from 'svelte';
 	import Section from '@/components/section.svelte';
@@ -25,20 +20,20 @@
 
 	const modalStore = getModalStore();
 
-	let playerData: PalWorldSavegame;
+	let player: any;
+	let savData: PalWorldSavegame;
 
 	let ready: Boolean = false;
 	let failed: Boolean = false;
 
-	let pwdash__name: string;
+	$: playerName = player?.data?.name;
 
 	onMount(async () => {
 		try {
-			const playerDataRes = await api.get('/paldex/' + data.id);
-			playerData = new PalWorldSavegame(playerDataRes.data.fileContents);
+			const res = await api.get('/players/' + data.id);
+			player = res.data.player;
 
-			pwdash__name = playerDataRes.data.pwdash__name;
-
+			savData = new PalWorldSavegame(player.data.sav);
 			await loadPalData();
 
 			ready = true;
@@ -73,8 +68,8 @@
 <Loader {ready} {failed}>
 	<div class="text-sublead break-all flex flex-col flex-center gap-sm">
 		<div class="flex flex-center gap-lg">
-			{#if pwdash__name}
-				<div>{pwdash__name}</div>
+			{#if playerName}
+				<div>{playerName}</div>
 			{:else}
 				Player {data.id}
 			{/if}
@@ -86,9 +81,9 @@
 	</div>
 
 	<Section label="Captured Pals">
-		{#if playerData.palsCaptured.length}
+		{#if savData.palsCaptured.length}
 			<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-lg">
-				{#each playerData.palsCaptured as pal}
+				{#each savData.palsCaptured as pal}
 					<PalEntry {pal} />
 				{/each}
 			</div>

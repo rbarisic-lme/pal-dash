@@ -28,13 +28,18 @@
 		</div>
 		<div class="flex gap-md">
 			<div class="flex-grow">
-				<div class="grid grid-cols-3 gap-md">
-					<div>Type</div>
+				<div class="grid grid-cols-4 gap-md">
+					<div>Type{myPal.types.length > 1 ? 's' : ''}</div>
 					<!-- Types -->
+					<div class="flex gap-sm">
+						{#each myPal.types as type}
+							<img width="24px" src={`${new URL(type.image, PUBLIC_PALDEX_API_URL)}`} />
+						{/each}
+					</div>
 					{#if myPal?.types}
 						{#each myPal.types as type}
 							<div class="badge variant-filled">
-								{type}
+								<div>{type.name}</div>
 							</div>
 						{/each}
 					{/if}

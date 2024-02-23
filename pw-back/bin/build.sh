@@ -11,8 +11,8 @@ npm install
 npm run build
 
 # Set file permissions to executable
-printf "\nsetting executable(a+x) permissions for dist/index.cjs\n\n"
-chmod a+x dist/index.cjs
-ls -l dist/index.cjs
+printf "\nsetting executable(a+x) permissions for dist/index.js\n\n"
+chmod a+x dist/index.js
+ls -l dist/index.js
 
 printf "\n>>>pw-back/build.sh successfully completed.\n\n"

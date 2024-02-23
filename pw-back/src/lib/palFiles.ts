@@ -11,11 +11,25 @@ interface listPlayerSaveItem {
 // write name to a file -- todo: let's exchange this with a DB later on
 const nameFileDir = './data/';
 
+export const getFileDate = async (filePath: string) =>  {
+  try {
+    const stat = await fs.promises.stat(filePath);
+    // @ts-ignore typescript bug
+    const mode: StatsMode = new Mode(stat);
+
+    return mode
+  } catch (error: Error | any) {
+    console.error(`Error getting file stats: ${error.message}`);
+    return null;
+  }
+}
+
 export class PalFiles {
   static async listPlayerSavesWithEnv(): Promise<listPlayerSaveItem[]> {
     return this.listPlayerSaves(env.palDir, env.serverId, env.worldGuid);
   }
 
+  // deprecated
   static async listPlayerSaves(palDir: string, serverId: string, worldGuid: string): Promise<listPlayerSaveItem[]> {
     const saveGamesPath = path.join(palDir, 'Saved', 'SaveGames', serverId, worldGuid, 'Players');
 
@@ -46,6 +60,7 @@ export class PalFiles {
     }
   }
 
+  // deprecated, use export method above
   static async getFileDate(filePath: string) {
     try {
       const stat = await fs.promises.stat(filePath);

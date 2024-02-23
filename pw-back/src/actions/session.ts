@@ -1,6 +1,6 @@
 // add your new actions to 'routes.ts'
 import { env } from '@/config.ts';
-import { generateToken } from '@/passport-init.ts';
+import { generateToken } from '@/boot/passport-init.ts';
 import express, { Router, Request, Response } from 'express';
 import passport from 'passport';
 import bcrypt from 'bcryptjs';

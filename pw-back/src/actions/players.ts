@@ -3,6 +3,7 @@ import validator from 'validator';
 
 import express, { Router, Request, Response } from 'express';
 import { PalFiles } from '../lib/palFiles.ts';
+import { Player } from '@/models/Player.ts';
 
 const router = express.Router();
 
@@ -10,12 +11,19 @@ const router = express.Router();
 const nameFileDir = './data/';
 
 router.get('/', async (req: Request, res: Response) => {
-  const playerSaves = await PalFiles.listPlayerSavesWithEnv()
-
+  // const playerSaves = await PalFiles.listPlayerSavesWithEnv()
+  const players = await Player.findAll({
+    fields: [
+      'id',
+      'name',
+      'registeredAt',
+    ]
+  });
 
   res.json({
     status: req.statusCode,
-    playerSaves,
+    players,
+    // playerSaves,
   });
 });
 
@@ -23,21 +31,18 @@ const sanitizeName = (name: string) => {
   return validator.escape(name.slice(0, 50)); // don't allow large strings
 }
 
-router.get('/name/:id', async (req: Request, res: Response) => {
+router.get('/:id', async (req: Request, res: Response) => {
   try {
-    const filePath = nameFileDir + req.params.id;
-
-    let pwdash__name;
-    try {
-      pwdash__name = fs.readFileSync(nameFileDir + save?.slice(0, -4), 'utf8');
-    } catch {
-      // console.log('file for ' + save?.slice(0, -4) + ' not found')
-      pwdash__name = undefined;
+    const player = await Player.find(req.params.id);
+    
+    if (!req.params.id) {
+      res.status(400).json({ error: 'Player ID is required.' });
+      return;
     }
 
-    res.json({ pwdash__name })
+    res.json({ player })
   } catch (error) {
-    console.error(`Error reading file at ${nameFileDir}:`, error.message);
+    console.error(`Error getting players/:id:`, error);
     return null;
   }
 })

@@ -1,9 +1,7 @@
-import forms from '@tailwindcss/forms';
-import { paldashTheme } from './paldash-theme.ts';
-
-// @ts-check
 import { join } from 'path';
+import forms from '@tailwindcss/forms';
 import { skeleton } from '@skeletonlabs/tw-plugin';
+import { paldashTheme } from './paldash-theme.ts';
 
 /** @type {import('tailwindcss').Config} */
 export default {

@@ -13,6 +13,7 @@
 
 	import Circle from 'svelte-material-icons/Circle.svelte';
 	import Reload from 'svelte-material-icons/Reload.svelte';
+	import Loader from '../loader.svelte';
 
 	$: service = $dockerCompose?.services['palworld-dedicated-server'] as ServiceConfiguration;
 
@@ -59,6 +60,7 @@
 		try {
 			isLoading = true;
 			await loadDockerStatus();
+			await getOnlinePlayers();
 		} finally {
 			isLoading = false;
 		}
@@ -108,9 +110,11 @@
 	</div>
 
 	<div class="card p-4 h-full">
-		<div class="text-lg">
-			{$onlinePlayers.length} Player{$onlinePlayers.length > 1 ? 's' : ''} Online
-		</div>
+		<Loader ready={!isLoading}>
+			<div class="text-lg">
+				{$onlinePlayers.length} Player{$onlinePlayers.length > 1 ? 's' : ''} Online
+			</div>
+		</Loader>
 	</div>
 
 	<!-- break after 3 elements -->

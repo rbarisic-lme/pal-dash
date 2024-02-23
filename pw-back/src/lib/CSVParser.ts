@@ -13,7 +13,7 @@
  * @param csvString - The CSV string to be converted.
  * @returns An array of JSON objects representing the CSV data.
  */
-export const csvToJSON = (csvString: string): any[] => {
+export const csvToJSON = (csvString: string): any => {
   const lines = csvString.trim().split('\n');
   const header = lines[0].split(',');
 

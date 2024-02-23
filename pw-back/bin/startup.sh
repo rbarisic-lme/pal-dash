@@ -9,5 +9,5 @@ export WORLD_GUID=F37D14B248EFAFC63FB56E8E65671166
 export PYTHON_RUNTIME=python3
 
 # Run the Node.js script
- /home/xiq/srv/pal-dashboard/pw-back/dist/index.cjs
+ /home/xiq/srv/pal-dashboard/pw-back/dist/index.js
 

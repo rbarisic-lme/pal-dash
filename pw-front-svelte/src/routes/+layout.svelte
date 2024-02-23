@@ -106,7 +106,7 @@
 		</div>
 	</main>
 	<!-- ---- / ---- -->
-	<svelte:fragment slot="pageFooter">Page Footer</svelte:fragment>
+	<!-- <svelte:fragment slot="pageFooter"></svelte:fragment> -->
 	<!-- (footer) -->
 </AppShell>
 

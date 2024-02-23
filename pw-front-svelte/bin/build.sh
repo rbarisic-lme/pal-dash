@@ -31,7 +31,7 @@ export PUBLIC_YT_API_KEY=$YT_API_KEY
 npm run build
 
 # Set file permissions to executable
-printf "\nsetting executable(a+x) permissions for dist/index.cjs\n\n"
+printf "\nsetting executable(a+x) permissions for dist/index.js\n\n"
 chmod a+x build/index.js
 ls -l build/index.js
 

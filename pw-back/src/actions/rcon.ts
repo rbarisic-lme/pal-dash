@@ -3,6 +3,12 @@ import { execSync } from 'node:child_process';
 import { csvToJSON } from '@/lib/CSVParser.ts';
 import passport from 'passport';
 
+type showAllPlayerEntity = {
+  name: string;
+  playeruid: string;
+  steamid: string;
+}
+
 const router = express.Router();
 
 // router.get('/showplayers', passport.authenticate('jwt', { session: false }), (req: Request, res: Response) => {
@@ -15,9 +21,13 @@ const router = express.Router();
 
   try {
     const output = execSync(dockerCommand, { shell: 'bash', encoding: 'utf-8', maxBuffer: 1024 * 1024 * 0.5  }); //1mb maxBuffer
-    const outputJSON = csvToJSON(output);
+    const outputJSON = csvToJSON(output)
 
-    console.log(outputJSON);
+    if(outputJSON.players) {
+      return outputJSON.players = outputJSON.players.map(player => ({
+        name: player.name,
+      }))
+    } 
 
     res.json({players: outputJSON});
   } catch(e) {

@@ -141,7 +141,7 @@ export ADMIN_USERNAME=$ADMIN_USERNAME
 export ADMIN_PASSWORD=$ADMIN_PASSWORD_HASHED
 
 # Run the Node.js script
-$WHICH_NODE $(pwd)/dist/index.cjs
+$WHICH_NODE $(pwd)/dist/index.js
 "
 
 # Create the startup script under the specified working directory
