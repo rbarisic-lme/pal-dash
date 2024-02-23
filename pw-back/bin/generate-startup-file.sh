@@ -104,11 +104,11 @@ APP_SECRET=$(openssl rand -hex 16)
 printf "\nGenerated Random 32-char App Secret using OpenSSL: $APP_SECRET\n\n"
 
 
-COUCHDB_URL=$(prompt_user "Enter ADMIN Password" "127.0.0.1:5984/")
-COUCHDB_COOKIE=$(prompt_user "Enter ADMIN Password" "7F036914FA8642C8A698BFF053CB9E50")
-COUCHDB_DB=$(prompt_user "Enter ADMIN Password" "pal-dash")
-COUCHDB_USER=$(prompt_user "Enter ADMIN Password" "admin")
-COUCHDB_PW=$(prompt_user "Enter ADMIN Password" "admin-password")
+COUCHDB_URL=$(prompt_user "Enter COUCHDB_URL" "127.0.0.1:5984/")
+COUCHDB_COOKIE=$(prompt_user "Enter COUCHDB_COOKIE" "7F036914FA8642C8A698BFF053CB9E50")
+COUCHDB_DB=$(prompt_user "Enter COUCHDB_DB" "pal-dash")
+COUCHDB_USER=$(prompt_user "Enter COUCHDB_USER" "admin")
+COUCHDB_PW=$(prompt_user "Enter COUCHDB_PW" "admin-password")
 
 # Display the provided information for confirmation
 echo "Provided information:"

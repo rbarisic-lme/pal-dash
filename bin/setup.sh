@@ -50,4 +50,6 @@ echo "INSTALLATION COMPLETE"
 echo "PalDash should be available via localhost:3000"
 
 # Todo: Ask if user wants to install CouchDB via Docker, with User config (see pw-back/bin/generate-startup-file.sh)
+# visit the Database Dashboard via http://<server-ip>:5984/_utils/#login
+# Todo: also show a link in paldash admin view
 #docker run -d --name pw-couchdb -e COUCHDB_USER=admin -e COUCHDB_PASSWORD=password -p 5984:5984 couchdb:latest
