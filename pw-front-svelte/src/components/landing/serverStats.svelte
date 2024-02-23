@@ -36,7 +36,7 @@
 	const getPlayerCount = async () => {
 		try {
 			const playerResult = await api.get('/players');
-			regPlayerCount = playerResult.data?.playerSaves?.length;
+			regPlayerCount = playerResult.data?.players?.length;
 		} catch (e) {
 			console.error(e);
 		}
