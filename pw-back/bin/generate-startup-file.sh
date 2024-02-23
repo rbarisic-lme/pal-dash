@@ -103,6 +103,7 @@ sleep 2
 APP_SECRET=$(openssl rand -hex 16)
 printf "\nGenerated Random 32-char App Secret using OpenSSL: $APP_SECRET\n\n"
 
+DB_TYPE=$(prompt_user "Enter Database Type [couchdb] (currently only couchdb supported)" "couchdb")
 
 COUCHDB_URL=$(prompt_user "Enter COUCHDB_URL" "127.0.0.1:5984/")
 COUCHDB_COOKIE=$(prompt_user "Enter COUCHDB_COOKIE" "7F036914FA8642C8A698BFF053CB9E50")
@@ -121,6 +122,7 @@ echo "PYTHON_RUNTIME: $PYTHON_RUNTIME"
 echo "ADMIN_USERNAME: $ADMIN_USERNAME"
 echo "ADMIN_PASSWORD: $ADMIN_PASSWORD_HASHED"
 echo "APP_SECRET: $APP_SECRET"
+echo "DB_TYPE: $DB_TYPE" 
 echo "COUCHDB_URL: $COUCHDB_URL" 
 echo "COUCHDB_COOKIE: $COUCHDB_COOKIE" 
 echo "COUCHDB_DB: $COUCHDB_DB" 
@@ -150,6 +152,7 @@ export PYTHON_RUNTIME=$PYTHON_RUNTIME
 export APP_SECRET=$APP_SECRET
 export ADMIN_USERNAME=$ADMIN_USERNAME
 export ADMIN_PASSWORD=$ADMIN_PASSWORD_HASHED
+export DB_TYPE=$DB_TYPE
 export COUCHDB_URL=$COUCHDB_URL 
 export COUCHDB_COOKIE=$COUCHDB_COOKIE 
 export COUCHDB_DB=$COUCHDB_DB 
