@@ -23,8 +23,14 @@ export class PlayerInfoExtractor {
 
     return new Promise((resolve, reject) => {
       try {
+        // For now, return if file doesn't exist
+        const levelSavJsonExists = fs.existsSync(path.join(fullWorldPath, 'Level.sav.json'));
+        
+        if(!levelSavJsonExists) return reject('Level.sav.json not found');
+
         // Read Level.sav.json file line by line and extract player info
         const readStream = fs.createReadStream(path.join(fullWorldPath, 'Level.sav.json'));
+
         const rl = readline.createInterface({
           input: readStream,
           crlfDelay: Infinity,
