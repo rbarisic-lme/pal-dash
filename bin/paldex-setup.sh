@@ -14,8 +14,8 @@ cd "$(dirname "$0")/.."
 echo "Current working directory (should end with '/pal-dash'): $(pwd)"
 
 zipfile_name=paldex-api.zip
-unzipped_name=palworld-paldex-api-1.2.0 # unzip and note name before updating this script
-git_release_url="https://github.com/mlg404/palworld-paldex-api/archive/refs/tags/v1.2.0.zip"
+unzipped_name=palworld-paldex-api-1.3.0 # unzip and note name before updating this script
+git_release_url="https://github.com/mlg404/palworld-paldex-api/archive/refs/tags/v1.3.0.zip"
 
 wget $git_release_url --timestamping -O ./vendor/$zipfile_name
 
@@ -23,7 +23,7 @@ cd ./vendor/
 
 printf "\n\nunzipping palworld-paldex-api...\n\n"
 unzip $zipfile_name
-palworld-paldex-api-1.2.0
+palworld-paldex-api-1.3.0
 printf "\n unzipping done. cleaning up $zipfile_name\n\n"
 
 rm $zipfile_name

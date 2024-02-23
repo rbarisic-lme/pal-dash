@@ -30,7 +30,7 @@ services:
 
   palworld-paldex-api:
     build:
-      context: https://github.com/mlg404/palworld-paldex-api.git#v1.2.0
+      context: https://github.com/mlg404/palworld-paldex-api.git#v1.3.0
       dockerfile: Dockerfile
     ports:
       - "3080:3000"  # Change the host port to the desired port
