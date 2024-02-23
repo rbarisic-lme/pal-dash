@@ -23,7 +23,7 @@ const processPlayerSave = async (filename: string) => {
     // console.info("STEP 1 for " + processedFilename);
     const extractor = new PlayerInfoExtractor(processedFilename);
     // console.info("STEP 2");
-    await extractor.createLevelSavJSON();
+    // await extractor.createLevelSavJSON();
     // console.info("STEP 3 " + processedFilename);
     extractedPlayerName = await PlayerInfoExtractor.extractPlayerInfo(processedFilename);
   } catch(e) {
