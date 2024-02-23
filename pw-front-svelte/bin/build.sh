@@ -10,9 +10,9 @@ echo "Running pw-front-svelte/build.sh..."
 printf "=========================================================\n\n"
 
 echo "Set your pw-back URL. This is http://<your host domain>:3030"
-SERVER_URL=$(prompt_user "Enter SERVER_URL (Where pw-back is exposed) MUST start with http:// or https://" "$(hostname -I | awk '{print $1}'):3030/")
+SERVER_URL=$(prompt_user "Enter SERVER_URL (Where pw-back is exposed) MUST start with http:// or https://" "http://$(hostname -I | awk '{print $1}'):3030/")
 echo "Same as Server URL, but using Port 3080. MUST start with http:// or https://"
-PALDEX_API_URL=$(prompt_user "Enter PALDEX_API_URL" "$(hostname -I | awk '{print $1}'):3080/")
+PALDEX_API_URL=$(prompt_user "Enter PALDEX_API_URL" "http://$(hostname -I | awk '{print $1}'):3080/")
 echo ""
 echo "You'll need a youtube api key to display streams on the dashboard."
 echo "Get one here: https://console.cloud.google.com/apis/dashboard."

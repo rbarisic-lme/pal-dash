@@ -16,7 +16,7 @@ const bree = new Bree({
   jobs: [
     {
       name: 'createPlayerDigests',
-      cron: '*/1 * * * *', // Run every minute
+      cron: '0 5 * * *', // Run every minute
     },
     // Add more job configurations as needed
   ],
